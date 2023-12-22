@@ -1,0 +1,221 @@
+2023-12-21 15:56:41,067 [1] DEBUG HibernatingRhinos.Profiler.Client.App [(null)] - Profiler initialized. Build: 6045
+2023-12-21 15:56:43,419 [1] WARN  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 01/18/2024 00:00:00
+2023-12-21 15:56:43,621 [1] DEBUG Rhino.Licensing.AbstractLicenseValidator [(null)] - License accepted for NHibernate Profiler
+2023-12-21 15:56:43,640 [10] INFO  HibernatingRhinos.Profiler.Client.Infrastructure.AutoUpdate.ProfilerAutoUpdate [(null)] - Checking for updates...
+2023-12-21 15:56:43,655 [1] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f97:97::6]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 15:56:47,869 [11] INFO  HibernatingRhinos.Profiler.Client.Infrastructure.AutoUpdate.ProfilerAutoUpdate [(null)] - There is no update available.
+2023-12-21 16:01:43,500 [34] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f96:96::6]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 16:06:43,704 [3] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f97:97::4]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 16:11:43,592 [12] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f97:97::6]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 16:16:43,662 [37] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f97:97::4]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 16:21:43,869 [37] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f97:97::4]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 16:26:43,778 [35] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f96:96::4]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 16:31:43,699 [33] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f15:15::27]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 16:36:43,706 [37] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f15:15::26]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 16:41:43,740 [41] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f96:96::4]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 16:46:43,731 [31] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f96:96::4]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 16:51:43,774 [33] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f97:97::4]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 16:56:43,826 [19] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f97:97::4]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 17:01:43,788 [45] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f15:15::26]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 17:06:43,807 [36] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f15:15::26]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 17:11:43,859 [7] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f97:97::6]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 17:16:43,807 [52] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f15:15::26]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 17:21:43,828 [66] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f97:97::4]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 17:28:28,366 [58] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f96:96::4]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 18:17:28,801 [63] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f97:97::6]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 18:41:28,939 [53] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f15:15::27]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 18:46:28,793 [14] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f15:15::27]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 18:51:28,862 [23] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f15:15::26]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 18:56:28,879 [26] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f15:15::27]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 19:01:28,953 [79] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f96:96::4]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 19:06:28,907 [75] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f96:96::4]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 19:11:28,925 [27] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f97:97::6]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 19:16:28,945 [20] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f15:15::26]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 19:21:29,038 [67] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f15:15::26]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 19:26:29,092 [29] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f97:97::4]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 19:31:29,066 [92] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f97:97::6]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 19:36:29,063 [107] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f96:96::4]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 19:41:29,200 [99] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f15:15::27]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 19:46:29,128 [85] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f97:97::6]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 19:51:29,302 [55] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f15:15::26]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-21 19:56:29,203 [25] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f15:15::26]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()

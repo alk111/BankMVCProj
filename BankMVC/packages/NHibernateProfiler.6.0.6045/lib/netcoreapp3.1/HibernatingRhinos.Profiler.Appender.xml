@@ -1,0 +1,300 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HibernatingRhinos.Profiler.Appender</name>
+    </assembly>
+    <members>
+        <member name="M:HibernatingRhinos.Profiler.Appender.CosmosDB.CosmosDBProfilerExtensions.UseCosmosDBProfiler(System.Object,System.Object)">
+            <summary>
+            Initializes CosmosDB Profiler Appender to profile your ASP.NET Core app 
+            </summary>
+            <param name="services">Built-in ASP.NET Core service container - IServiceProvider configured in Startup.ConfigureServices</param>
+            <param name="cosmosClient">Cosmos DB client used used to configure and execute requests in Cosmos DB database service</param>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.CosmosDB.CosmosDBProfilerExtensions.UseCosmosDBProfiler(System.Object,System.Object[])">
+            <summary>
+            Initializes CosmosDB Profiler Appender to profile your ASP.NET Core app 
+            </summary>
+            <param name="services">Built-in ASP.NET Core service container - IServiceProvider configured in Startup.ConfigureServices</param>
+            <param name="cosmosClients">Additional Cosmos DB clients</param>
+        </member>
+        <member name="T:HibernatingRhinos.Profiler.Appender.CustomQueryReporting">
+            <summary>
+            Allow to inject additional messages into the profiler
+            </summary>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.CustomQueryReporting.ReportSessionOpened(System.String,System.String)">
+            <summary>
+            Report a session closed to the profiler
+            </summary>
+            <param name="sessionId">The session id</param>
+            <param name="url">The session URL</param>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.CustomQueryReporting.ReportSessionClosed(System.String)">
+            <summary>
+            Report a session closed to the profiler
+            </summary>
+            <param name="sessionId">The session id to associate with the transaction</param>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.CustomQueryReporting.ReportTransactionBeginning(System.String)">
+            <summary>
+            Report a transaction begin to the profiler
+            </summary>
+            <param name="sessionId">The session id to associate with the transaction</param>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.CustomQueryReporting.ReportTransactionBeginning(System.String,System.Data.IsolationLevel)">
+            <summary>
+            Report a transaction begin to the profiler
+            </summary>
+            <param name="sessionId">The session id to associate with the transaction</param>
+            <param name="isolationLevel">The transaction isolation level</param>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.CustomQueryReporting.ReportTransactionCommitted(System.String)">
+            <summary>
+            Report a transaction commit to the profiler
+            </summary>
+            <param name="sessionId">The session id to associate with the transaction commit</param>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.CustomQueryReporting.ReportTransactionRolledBack(System.String)">
+            <summary>
+            Report a transaction rollback to the profiler
+            </summary>
+            <param name="sessionId">The session id to associate to to this tranansaction rollback</param>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.CustomQueryReporting.ReportError(System.String,System.String)">
+            <summary>
+            Report a custom error to the profiler
+            </summary>
+            <param name="sessionId">The session id to associate to this error</param>
+            <param name="error">The error text to show in the profiler</param>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.CustomQueryReporting.ReportError(System.String,System.Exception)">
+            <summary>
+            Report a custom error to the profiler
+            </summary>
+            <param name="sessionId">The session id to associate to this error</param>
+            <param name="error">The error text to show in the profiler</param>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.CustomQueryReporting.ReportError(System.String,System.String,HibernatingRhinos.Profiler.Appender.Level)">
+            <summary>
+            Report a custom error to the profiler
+            </summary>
+            <param name="sessionId">The session id to associate to this error</param>
+            <param name="error">The error text to show in the profiler</param>
+            <param name="level">The level of the error</param>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.CustomQueryReporting.ReportWriteQuery(System.String,System.String,System.Collections.Generic.IEnumerable{System.Data.IDataParameter},System.Int32)">
+            <summary>
+            Report an external query to the profiler 
+            </summary>
+            <param name="sessionId">The session id that this query belongs to (or a Guid.NewGuid().ToString() to use a new session)</param>
+            <param name="queryText">The text of the SQL queries that were made</param>
+            <param name="parameters">A collection of the parameters sent for this query (note that the parameters names must match the parameters in the query text)</param>
+            <param name="totalTime">The total time (in milliseconds) from executing the query to completing processing the query and returning to the calling code</param>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.CustomQueryReporting.ReportQuery(System.String,System.String,System.Collections.Generic.IEnumerable{System.Data.IDataParameter},System.Int32,System.Int32,System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Report an external query to the profiler 
+            </summary>
+            <param name="sessionId">The session id that this query belongs to (or a Guid.NewGuid().ToString() to use a new session)</param>
+            <param name="queryText">The text of the SQL queries that were made</param>
+            <param name="parameters">A collection of the parameters sent for this query (note that the parameters names must match the parameters in the query text)</param>
+            <param name="databaseTime">The time (in milliseconds) from executing the query to the return of the first row.</param>
+            <param name="totalTime">The total time (in milliseconds) from executing the query to completing processing the query and returning to the calling code</param>
+            <param name="countOfRows">The number of rows returned by each query accordingly</param>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.CustomQueryReporting.ReportQuery(System.String,System.String,System.Collections.Generic.IEnumerable{System.Data.IDataParameter},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Report an external query to the profiler 
+            </summary>
+            <param name="sessionId">The session id that this query belongs to (or a Guid.NewGuid().ToString() to use a new session)</param>
+            <param name="queryText">The text of the SQL query that was made</param>
+            <param name="parameters">A collection of the parameters sent for this query (note that the parameters names must match the parameters in the query text)</param>
+            <param name="databaseTime">The time (in milliseconds) from executing the query to the return of the first row.</param>
+            <param name="totalTime">The total time (in milliseconds) from executing the query to completing processing the query and returning to the calling code</param>
+            <param name="rowCount">The number of rows returned by this query</param>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.EntityFramework.EntityFrameworkProfiler.InitializeOfflineProfiling(System.String,System.Boolean)">
+            <summary>
+            Initialize for profiling offline.
+            </summary>
+            <remarks>The standard extension of the output file is .EFProf.</remarks>
+            <param name="path">The name of the output file, unless the isRolling is set to true which in this case the path should point to a directory.</param>
+            <param name="isRolling">If true, path should be a directory and a new file will be created per day. If false, path should point to a file.</param>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.EntityFramework.EntityFrameworkProfiler.InitializeUsingConfiguration(System.String)">
+            <summary>
+            Initialize for profiler using the configuration in the configuration file.
+            </summary>
+            <param name="path">The path to the configuration file. If not specified, the EFProf.config path will be used by default.</param>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.EntityFramework.EntityFrameworkProfiler.RenameObjectContextInProfiler(System.Data.Common.DbConnection,System.String)">
+            <summary>
+            Rename the object context.
+            </summary>
+            <param name="connection">You should get the connection using the objectContext. Like: objectContext.Connection.</param>
+            <param name="newName"></param>
+        </member>
+        <member name="T:HibernatingRhinos.Profiler.Appender.Messages.HibernatingRhinosProfilerMessagesReflection">
+            <summary>Holder for reflection information generated from HibernatingRhinos.Profiler.Messages.proto</summary>
+        </member>
+        <member name="P:HibernatingRhinos.Profiler.Appender.Messages.HibernatingRhinosProfilerMessagesReflection.Descriptor">
+            <summary>File descriptor for HibernatingRhinos.Profiler.Messages.proto</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.MessageFieldNumber">
+            <summary>Field number for the "Message" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.LoggerFieldNumber">
+            <summary>Field number for the "Logger" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.DateAsMillisecondsSinceUnixEpochFieldNumber">
+            <summary>Field number for the "DateAsMillisecondsSinceUnixEpoch" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.SessionIdFieldNumber">
+            <summary>Field number for the "SessionId" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.UrlFieldNumber">
+            <summary>Field number for the "Url" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.LevelFieldNumber">
+            <summary>Field number for the "Level" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.ThreadContextFieldNumber">
+            <summary>Field number for the "ThreadContext" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.ThreadIdFieldNumber">
+            <summary>Field number for the "ThreadId" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.StackTraceFieldNumber">
+            <summary>Field number for the "StackTrace" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.ExceptionFieldNumber">
+            <summary>Field number for the "Exception" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.DbDialectFieldNumber">
+            <summary>Field number for the "DbDialect" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.CultureFieldNumber">
+            <summary>Field number for the "Culture" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.StarColorFieldNumber">
+            <summary>Field number for the "StarColor" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.ScopeNameFieldNumber">
+            <summary>Field number for the "ScopeName" field.</summary>
+        </member>
+        <member name="T:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.Types">
+            <summary>Container for nested types declared in the LoggingEventMessage message type.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.Types.StackTraceFrame.TypeFieldNumber">
+            <summary>Field number for the "Type" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.Types.StackTraceFrame.LineFieldNumber">
+            <summary>Field number for the "Line" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.Types.StackTraceFrame.ColumnFieldNumber">
+            <summary>Field number for the "Column" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.Types.StackTraceFrame.MethodFieldNumber">
+            <summary>Field number for the "Method" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.Types.StackTraceFrame.NamespaceFieldNumber">
+            <summary>Field number for the "Namespace" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.Types.StackTraceFrame.FullFilenameFieldNumber">
+            <summary>Field number for the "FullFilename" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.LoggingEventMessage.Types.StackTraceInfo.FramesFieldNumber">
+            <summary>Field number for the "Frames" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.StatisticsInformation.NameFieldNumber">
+            <summary>Field number for the "Name" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.StatisticsInformation.ItemsFieldNumber">
+            <summary>Field number for the "Items" field.</summary>
+        </member>
+        <member name="T:HibernatingRhinos.Profiler.Appender.Messages.StatisticsInformation.Types">
+            <summary>Container for nested types declared in the StatisticsInformation message type.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.StatisticsInformation.Types.KeyValue.KeyFieldNumber">
+            <summary>Field number for the "Key" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.StatisticsInformation.Types.KeyValue.ValueFieldNumber">
+            <summary>Field number for the "Value" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.ApplicationInformation.IdFieldNumber">
+            <summary>Field number for the "Id" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.ApplicationInformation.NameFieldNumber">
+            <summary>Field number for the "Name" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.MessageWrapper.TypeFieldNumber">
+            <summary>Field number for the "Type" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.MessageWrapper.MessageIdFieldNumber">
+            <summary>Field number for the "MessageId" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.MessageWrapper.MessageFieldNumber">
+            <summary>Field number for the "Message" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.MessageWrapper.StatsFieldNumber">
+            <summary>Field number for the "Stats" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.MessageWrapper.ApplicationFieldNumber">
+            <summary>Field number for the "Application" field.</summary>
+        </member>
+        <member name="F:HibernatingRhinos.Profiler.Appender.Messages.MessageWrapper.ContextFileFieldNumber">
+            <summary>Field number for the "ContextFile" field.</summary>
+        </member>
+        <member name="T:HibernatingRhinos.Profiler.Appender.Messages.MessageWrapper.Types">
+            <summary>Container for nested types declared in the MessageWrapper message type.</summary>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.InitializeOfflineProfiling(System.String,System.Boolean)">
+            <summary>
+            Initialize for profiling offline.
+            </summary>
+            <remarks>The standard extension of the output file is .NHProf.</remarks>
+            <param name="path">The name of the output file, unless the isRolling is set to true which in this case the path should point to a directory.</param>
+            <param name="isRolling">If true, path should be a directory and a new file will be created per day. If false, path should point to a file.</param>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.InitializeUsingConfiguration(System.String)">
+            <summary>
+            Initialize for profiler using the configuration in the configuration file.
+            </summary>
+            <param name="path">The path to the configuration file. If not specified, the NHProf.config path will be used by default.</param>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.GetLoggerTypeBasedOnNHibernateAssembly">
+            <summary>
+            Analyze what logger to use, based on the logger that the current NHibernate support.
+            </summary>
+            <remarks>Should not return NHibernateLoggerType.NeedToBeAnalyzed. If not found any method support, should return NHibernateLoggerType.None.</remarks>
+        </member>
+        <member name="T:HibernatingRhinos.Profiler.Appender.NHibernate.StatisticsSourceAggregator">
+            <summary>
+            we use a late bound approach to deal with getting the statistics
+            because we need to maintain version independence from NHibernate
+            </summary>
+        </member>
+        <member name="P:HibernatingRhinos.Profiler.Appender.ProfilerIntegration.HttpContextAccessor">
+            <summary>
+            Set the current Microsoft.AspNetCore.Http.IHttpContextAccessor service.
+            </summary>
+        </member>
+        <member name="P:HibernatingRhinos.Profiler.Appender.ProfilerIntegration.HttpContext">
+            <summary>
+            Set the current System.Web.HttpContext.
+            </summary>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.Util.DisposableAction.#ctor(System.Action)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HibernatingRhinos.Profiler.Appender.Util.DisposableAction"/> class.
+            </summary>
+            <param name="action">The action.</param>
+        </member>
+        <member name="M:HibernatingRhinos.Profiler.Appender.Util.DisposableAction.Dispose">
+            <summary>
+            Execute the relevant actions
+            </summary>
+        </member>
+    </members>
+</doc>

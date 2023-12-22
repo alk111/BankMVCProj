@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="BankMVC" namespace="BankMVC.Models">
+	<class name="User">
+		<id name="Id">
+			<generator class="native"/>
+		</id>
+		<property name="RoleName"></property>
+		
+		<set name="Users" table="`User`" cascade="all-delete-orphan">
+			<key column="RoleId"></key>
+			<one-to-many class="User"/>
+		</set>
+		
+	</class>
+
+</hibernate-mapping>
