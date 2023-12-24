@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace BankMVC.Controllers
 {
+    [AllowAnonymous]
     public class TransactionController : Controller
     {
         private readonly ITransactionService _transactionService;
@@ -20,8 +21,16 @@ namespace BankMVC.Controllers
         }
         public ActionResult Index()
         {
-          
-            return View();
+            var transactions = _transactionService.GetAll();
+            List<TransactionVM> list = new List<TransactionVM>();
+            foreach (var transaction in transactions)
+            {
+                list.Add(_transactionAssembler.ConvertToViewModel(transaction));
+            }
+
+            // Implement logic for displaying account types if needed
+            return View(list);
+
         }
         [HttpGet]
         public ActionResult Create()
@@ -49,7 +58,8 @@ namespace BankMVC.Controllers
             var transaction = _transactionService.GetById(transactionVM.Id);
             if (transaction != null)
             {
-                _transactionService.Update(transaction);
+                var updatedData = _transactionAssembler.ConvertToModel(transactionVM);
+                _transactionService.Update(updatedData);
             }
             return RedirectToAction("Index");
         }

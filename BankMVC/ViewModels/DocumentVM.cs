@@ -14,10 +14,11 @@ namespace BankMVC.ViewModels
         [StringLength(20, ErrorMessage = "Document Name must be at most 20 characters long.")]
         public virtual string DocumentName { get; set; }
 
-        [Required(ErrorMessage = "Document File is required.")]
+        //[Required(ErrorMessage = "Document File is required.")]
         public virtual byte[] DocumentFile { get; set; }
 
         [Required(ErrorMessage = "Customer Id is required.")]
         public virtual int CustomerId { get; set; }
+        public virtual HttpPostedFileBase PostedFile { get; set; }
     }
 }

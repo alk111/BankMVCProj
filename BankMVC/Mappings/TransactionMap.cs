@@ -10,7 +10,7 @@ namespace BankMVC.Mappings
     public class TransactionMap:ClassMap<Transaction>
     {
         public TransactionMap() {
-            Table("Transaction");
+            Table("Transactions");
             Id(o => o.Id);
             Map(o => o.TransactionType);
             Map(o => o.Amount);

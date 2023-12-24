@@ -40,6 +40,7 @@ namespace BankMVC.Assemblers
                 ContactNo = customer.ContactNo,
                 Email = customer.Email,
                 IsActive = customer.IsActive,
+                //UserId = customer.User.Id,
                 DocumentsCount = customer.Documents.Count,
                 AccountsCount = customer.Accounts.Count,
             };

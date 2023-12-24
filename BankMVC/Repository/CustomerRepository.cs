@@ -77,7 +77,7 @@ namespace BankMVC.Repository
                     customer = session.Query<Customer>()
                         .Fetch(c=>c.Documents)
                         .Fetch(c => c.Accounts)
-                        //.Fetch(x=>x.User)
+                        .Fetch(x=>x.User)
                         .ToList();
                     txn.Commit();
 

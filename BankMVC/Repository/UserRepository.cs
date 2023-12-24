@@ -122,7 +122,7 @@ namespace BankMVC.Repository
                     user = session.Query<User>().Where(x => x.Username == username)
                         .Fetch(x => x.Role).FirstOrDefault();
                     //user = query.SingleOrDefault();
-
+                       
                     txn.Commit();
                 }
             }

@@ -16,8 +16,9 @@ namespace BankMVC.Mappings
             Map(o => o.AccountNo);
             Map(o => o.Balance);
             Map(o => o.IsActive);
-            References(m => m.AccountType).Column("AccountTypeId");
-            References(m => m.Customer).Column("CustomerId");
+            References(m => m.AccountType).Column("AccountTypeId").Cascade.All();
+            References(m => m.Customer).Column("CustomerId").Cascade.All();
+            HasMany(m => m.Transactions).Inverse().Cascade.SaveUpdate().KeyColumn("AccountId");
         }
     }
 }

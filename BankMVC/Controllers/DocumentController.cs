@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace BankMVC.Controllers
 {
+    [AllowAnonymous]
     public class DocumentController : Controller
     {// GET: User
         private readonly IDocumentService _documentService;
@@ -24,6 +25,12 @@ namespace BankMVC.Controllers
         //{
         //    return View();
         //}
+        public ActionResult Index()
+        {
+            var documents = _documentService.GetAll();
+            var documentVMs = documents.Select(d => _documentAssembler.ConvertToViewModel(d)).ToList();
+            return View(documentVMs);
+        }
 
         [HttpGet]
         public ActionResult Create()
@@ -32,8 +39,9 @@ namespace BankMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(DocumentVM documentVM)
+        public ActionResult Create(DocumentVM documentVM ,HttpPostedFileBase file)
         {
+            documentVM.PostedFile = file;
             var document = _documentAssembler.ConvertToModel(documentVM);
             var newDocument = _documentService.Add(document);
             ViewBag.Message = "Added Successfully";

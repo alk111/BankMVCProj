@@ -13,7 +13,8 @@ namespace BankMVC.Mappings
             Table("Document");
             Id(m => m.Id);
             Map(m => m.DocumentName);
-            Map(m => m.DocumentFile);
+            //Map(m => m.DocumentFile);
+            Map(m => m.DocumentFile).CustomType("BinaryBlob").Length(int.MaxValue);
             References(m => m.Customer).Column("CustomerId");
 
         }

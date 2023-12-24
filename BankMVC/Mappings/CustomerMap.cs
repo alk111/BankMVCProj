@@ -17,7 +17,7 @@ namespace BankMVC.Mappings
             Map(o => o.ContactNo);
             Map(o => o.Email);
             Map(o => o.IsActive);
-            References(m => m.User).Columns("UserId");
+            References(m => m.User).Columns("UserId").Cascade.All();
             //References(m => m.User).Columns("UserId").Nullable().Cascade.All();
             HasMany(m => m.Documents).Inverse().Cascade.SaveUpdate().KeyColumn("CustomerId");
             HasMany(m => m.Accounts).Inverse().Cascade.SaveUpdate().KeyColumn("CustomerId");
