@@ -1,75 +1,76 @@
-﻿@model IEnumerable<BankMVC.ViewModels.CustomerVM>
+﻿
+@model IEnumerable<BankMVC.ViewModels.CustomerVM>
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContactNo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DocumentsCount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AccountsCount)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContactNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DocumentsCount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AccountsCount)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+<h2>Customers</h2>
+<link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" type="text/css" />
+<script src="~/Scripts/jquery-3.4.1.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery-ui-1.10.0.min.js"></script>
+<script src="~/Scripts/i18n/grid.locale-en.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.jqGrid.min.js" type="text/javascript"></script>
+<script src="~/Scripts//myjqgrid.js" type="text/javascript"></script>
 
-</table>
+<style>
+    body {
+        background-color: #f0f0f0;
+        color: #333;
+    }
+
+    .container {
+        margin-top: auto;
+       
+    }
+
+    h2 {
+        text-align: center;
+        color: #3498db;
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+
+    #grid {
+        width: 100%;
+        margin-top: 20px;
+        overflow-x: auto;
+    }
+
+    #pager {
+        margin-top: 10px;
+    }
+
+    .btn-primary {
+        background-color: #3498db;
+        border-color: #3498db;
+        font-size: large;
+        color: black;
+    }
+
+        .btn-primary:hover {
+            background-color: #2a80b9;
+            border-color: #2a80b9;
+        }
+
+    .create-button {
+        text-align: right;
+    }
+    /*.table{
+        align-items:flex-start;
+    }*/
+</style>
+
+<div class="create-button">
+    @Html.ActionLink("Create", "Create", "Customer", new { area = "" }, new { @class = "btn btn-primary", style = "color: black;" })
+</div>
+
+<br />
+<div class="table" align="left">
+    <table id="grid"></table>
+    <div id="pager"></div>
+</div>

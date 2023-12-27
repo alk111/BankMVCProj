@@ -12,7 +12,7 @@ namespace BankMVC.Repository
 {
     public class UserRepository : IUserRepository
     {
-        public string Add(User user)
+        public User Add(User user)
         {
             NHibernateProfilerBootstrapper.PreStart();
 
@@ -25,7 +25,7 @@ namespace BankMVC.Repository
 
                 }
             }
-            return "Added Succesfully";
+            return user;
         }
         public string Update(User user)
         {

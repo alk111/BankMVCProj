@@ -18,10 +18,12 @@ namespace BankMVC.Controllers
         // GET: Login
         private readonly IUserService _userService;
         private readonly UserAssembler _userAssembler;
-        public LoginController(IUserService userService, UserAssembler userAssembler)
+        private readonly ICustomerService _customerService;
+        public LoginController(IUserService userService, UserAssembler userAssembler, ICustomerService customerService)
         {
             _userService = userService;
             _userAssembler = userAssembler;
+            _customerService = customerService;
         }
         public ActionResult Index()
         {
@@ -48,10 +50,13 @@ namespace BankMVC.Controllers
             {
                 //Session["User"] = result.Name;
                 //Session["Role"] = result.Role.RoleName;
+                var customers = _customerService.GetAll();
+                var data = customers.Where(x => x.User.Id == user.Id).FirstOrDefault();
+                Session["LoginId"] = data.Id;
                 FormsAuthentication.SetAuthCookie(result.Username, false);
                 if (result.Role.RoleName == "Admin")
-                    return RedirectToAction("Index", "User");
-                return RedirectToAction("Index", "Customer");
+                    return RedirectToAction("AdminDashboard", "Customer");
+                return RedirectToAction("CustomerDashboard", "Customer");
             }
 
             ViewBag.Message = "Username or Password does not match";

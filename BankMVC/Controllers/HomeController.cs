@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace BankMVC.Controllers
 {
+    
     public class HomeController : Controller
     {
         public ActionResult Index()

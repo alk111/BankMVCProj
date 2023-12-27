@@ -42,7 +42,9 @@ namespace BankMVC.Repository
             {
                 using (var txn = session.BeginTransaction())
                 {
-                    session.Delete(customer);
+                    customer.IsActive = false;
+                    session.Update(customer);
+                    //session.Delete(customer);
                     txn.Commit();
 
                 }
@@ -57,9 +59,10 @@ namespace BankMVC.Repository
                 using (var txn = session.BeginTransaction())
                 {
                     //customer = session.Load<Customer>(custId);
-                    customer = session.Query<Customer>().Where(x=>x.Id == custId)
+                    customer = session.Query<Customer>().Where(c => c.Id == custId)
                         .Fetch(c => c.Documents)
                         .Fetch(c => c.Accounts)
+                         .Fetch(c => c.User)
                         .FirstOrDefault();
                     txn.Commit();
 
@@ -78,6 +81,7 @@ namespace BankMVC.Repository
                         .Fetch(c=>c.Documents)
                         .Fetch(c => c.Accounts)
                         .Fetch(x=>x.User)
+                        //.Where(d => d.IsActive == true)
                         .ToList();
                     txn.Commit();
 

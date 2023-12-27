@@ -1,5 +1,6 @@
 ﻿using BankMVC.Helpers;
 using BankMVC.Models;
+using NHibernate.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Web;
 
 namespace BankMVC.Repository
 {
-    public class AccountRepository:IAccountRepository
+    public class AccountRepository : IAccountRepository
     {
         public string Add(Account account)
         {
@@ -41,7 +42,9 @@ namespace BankMVC.Repository
             {
                 using (var txn = session.BeginTransaction())
                 {
-                    session.Delete(account);
+                    account.IsActive = false;
+                    session.Update(account);
+                    //session.Delete(account);
                     txn.Commit();
 
                 }
@@ -55,7 +58,12 @@ namespace BankMVC.Repository
             {
                 using (var txn = session.BeginTransaction())
                 {
-                    account = session.Load<Account>(accountId);
+                    account = session.Query<Account>()
+                        .Where(c => c.Id == accountId)
+                        .Fetch(c => c.AccountType)
+                        .Fetch(c => c.Customer)
+                        .Fetch(c => c.Transactions)
+                        .FirstOrDefault();
                     txn.Commit();
 
                 }
@@ -69,7 +77,25 @@ namespace BankMVC.Repository
             {
                 using (var txn = session.BeginTransaction())
                 {
-                    account = session.Query<Account>().ToList();
+                    account = session.Query<Account>().Fetch(x => x.Transactions)
+                        .Fetch(x => x.AccountType).Fetch(x => x.Customer)
+                        .Where(x => x.IsActive == true).ToList();
+                    txn.Commit();
+
+                }
+            }
+            return account;
+        }
+        public Account GetByAccountNumber(string accNo)
+        {
+            Account account = new Account();
+            using (var session = NHibernateHelpers.OpenSession())
+            {
+                using (var txn = session.BeginTransaction())
+                {
+                    account = session.Query<Account>().Where(a=>a.AccountNo==accNo).Fetch(x => x.Transactions)
+                        .Fetch(x => x.AccountType).Fetch(x => x.Customer)
+                        .Where(x => x.IsActive == true).FirstOrDefault();
                     txn.Commit();
 
                 }

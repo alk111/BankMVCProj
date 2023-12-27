@@ -13,5 +13,6 @@ namespace BankMVC.Services
         string Delete(Transaction transaction);
         Transaction GetById(int transactionId);
         List<Transaction> GetAll();
+        List<Transaction> GetAllByCustFilter(int tempData);
     }
 }

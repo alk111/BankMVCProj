@@ -10,12 +10,14 @@ namespace BankMVC.Services
     public class CustomerService:ICustomerService
     {
         private readonly ICustomerRepository _customerRepository;
+
         public CustomerService(ICustomerRepository customerRepository)
         {
             _customerRepository = customerRepository;
         }
         public string Add(Customer customer)
         {
+            customer.IsActive = true;
             return _customerRepository.Add(customer);
         }
         public string Update(Customer customer)

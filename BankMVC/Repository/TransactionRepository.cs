@@ -1,13 +1,15 @@
 ﻿using BankMVC.Helpers;
 using BankMVC.Models;
+using NHibernate.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace BankMVC.Repository
 {
-    public class TransactionRepository:ITransactionRepository
+    public class TransactionRepository : ITransactionRepository
     {
         public string Add(Transaction transaction)
         {
@@ -55,26 +57,42 @@ namespace BankMVC.Repository
             {
                 using (var txn = session.BeginTransaction())
                 {
-                    transaction = session.Load<Transaction>(transactionId);
+                    transaction = session.Query<Transaction>().Where(x => x.Id == transactionId)
+                        .Fetch(x => x.Account).FirstOrDefault();
                     txn.Commit();
+
 
                 }
             }
             return transaction;
         }
+
         public List<Transaction> GetAll()
         {
-            List<Transaction> transaction = new List<Transaction>() { };
+            List<Transaction> transaction = new List<Transaction>();
+            //List<Customer> customer = new List<Customer>() { };
             using (var session = NHibernateHelpers.OpenSession())
             {
                 using (var txn = session.BeginTransaction())
                 {
-                    transaction = session.Query<Transaction>().ToList();
+                    //    customer = session.Query<Customer>()
+                    //.Fetch(c => c.Documents)
+                    //.Fetch(c => c.Accounts)
+                    //.ToList();
+
+                    transaction = session.Query<Transaction>()
+                    //.Fetch(c => c.User)
+                    .Fetch(c => c.Account)
+                    .ToList();
+
+                    //txn.Commit();
                     txn.Commit();
 
                 }
             }
             return transaction;
         }
+        
+
     }
 }

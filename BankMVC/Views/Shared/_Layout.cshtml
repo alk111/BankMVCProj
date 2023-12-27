@@ -1,58 +1,209 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewBag.Title - MyBank</title>
+
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Add your CSS links and scripts here if needed -->
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        body {
+            font-size: 16px; /* Increase text size */
+        }
+
+        .container.body-content {
+            background-color: #fff; /*Set background color for the content container*/
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            min-height: 300px; /* Set a minimum height for the content container */
+            overflow: auto; /* Add overflow for content that exce*/
+        }
+
+        .navbar {
+            background-color: #3498db; /* Change navbar background color */
+        }
+
+        .navbar-brand {
+            color: #ecf0f1; /* Change navbar brand text color */
+            font-size: 24px; /* Increase navbar brand text size */
+        }
+
+        .navbar-nav li a {
+            color: #ecf0f1 !important; /* Change navbar link text color */
+            font-size: 18px; /* Increase navbar link text size */
+        }
+
+            .navbar-nav li a:hover {
+                background-color: #2980b9; /* Change navbar link hover background color */
+            }
+
+        .navbar-toggler {
+            border-color: #ecf0f1; /* Change navbar toggle button color */
+        }
+
+        .navbar-toggler-icon {
+            background-color: #ecf0f1; /* Change navbar toggle icon color */
+        }
+
+        .navbar-nav {
+            width: 100%;
+            text-align: center;
+        }
+
+            .navbar-nav li {
+                display: inline-block;
+                float: none;
+            }
+
+            .navbar-nav .logout-button {
+                margin-left: auto;
+            }
+
+            .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+                color: black; /* Change text color of the dropdown menu */
+                display: block;
+            }
+
+            .navbar-nav .nav-link:hover {
+                background-color: rgba(255, 255, 255, 0.1); /* Set background color on hover */
+            }
+
+        .btn-primary,
+        .btn-profile,
+        .btn-danger {
+            margin: 0;
+        }
+
+        .navbar-nav .btn-profile {
+            margin-left: auto;
+        }
+
+        .btn-primary {
+            background-color: #2ecc71 !important;
+            border-color: #2ecc71 !important;
+        }
+
+        .btn-danger {
+            background-color: #e74c3c !important;
+            border-color: #e74c3c !important;
+        }
+
+        .navbar-nav .nav-item.dropdown:hover .dropdown-menu,
+        .navbar-nav .nav-item.dropdown:hover .dropdown-menu a {
+            color: black !important; /* Change text color of the dropdown menu and links */
+        }
+
+        .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+            background-color: #fff; /* Change background color of the dropdown menu */
+        }
+    </style>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")" style="padding-top:15px;">My Bank</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    @*<li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-        <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-        <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>*@
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <!-- Add more navigation links if needed -->
+                </ul>
+                <ul class="navbar-nav">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        if (User.IsInRole("Admin"))
+                        if (User.IsInRole("Customer"))
                         {
-                            <li>@Html.ActionLink("User", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-
-                            @*<li>@Html.ActionLink("Customer", "Index", "Customer", new { area = "" }, new { @class = "nav-link" })</li>*@
+                            <li class="nav-item" style="margin-left:-220px;">@Html.ActionLink("Dashboard", "CustomerDashboard", "Customer", new { area = "" }, new { @class = "nav-link btn " })</li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link btn btn-profile dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Profile
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    @Html.ActionLink("Update Profile", "Edit", "Customer", new { area = "" }, new { @class = "dropdown-item" })
+                                    @Html.ActionLink("Change Password", "Action2", "Controller", new { area = "" }, new { @class = "dropdown-item" })
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link btn btn-profile dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Transactions
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <button class = "dropdown-item">siuhksbdbksbsbdj</button>
+                                    @Html.ActionLink("Withdraw", "Edit", "Customer", new { area = "", value = "Withdraw" }, new { @class = "dropdown-item setSessionLink" })
+                                    @Html.ActionLink("Deposit", "Action2", "Controller", new { area = "", value = "Deposit" }, new { @class = "dropdown-item setSessionLink" })
+                                    @Html.ActionLink("Transfer", "Transfer", "Transaction", new { area = "", value = "Transfer" }, new { @class = "dropdown-item setSessionLink" })
+                                </div>
+                            </li>
                         }
-                        else if (User.IsInRole("Customer"))
-                        {
-                            <li>@Html.ActionLink("Customer", "Index", "Customer", new { area = "" }, new { @class = "nav-link" })</li>
-
-                            @*<li>@Html.ActionLink("Details", "Index", "Detail", new { area = "" }, new { @class = "nav-link" })</li>*@
-                            @*<li><a>Hello @User.Identity.Name</a></li>*@
-                        }
-                        <li>@Html.ActionLink("Logout", "Logout", "Login", new { area = "" }, new { @class = "nav-link" })</li>
-
+                        <li class="nav-item logout-button">
+                            @Html.ActionLink("Logout", "Logout", "Login", new { area = "" }, new { @class = "btn btn-danger" })
+                        </li>
                     }
-
+                    else
+                    {
+                        <li class="nav-item logout-button">
+                            @Html.ActionLink("Register", "Create", "Customer", new { area = "" }, new { @class = "btn btn-primary" })
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
     </nav>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - MyBank</p>
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
+    <!-- Uncomment this line if you need jQuery -->
+    <!-- @Scripts.Render("~/bundles/jquery") -->
+
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
+
+
+<script>
+    $(document).ready(function () {
+        $(".setSessionValueButton").click(function () {
+            //var key = "YourSessionKey";
+            var value = "";
+
+            // Make an asynchronous request to set the session value
+            $.ajax({
+                url: '@Url.Action("SetSessionValue", "Transaction")',
+                type: 'POST',
+                data: { value: value },
+                success: function (data) {
+                    if (data.success) {
+                        // Session value set successfully
+                        alert('Session value set successfully.');
+                    } else {
+                        // Handle any errors if needed
+                        alert('Error setting session value.');
+                    }
+                },
+                error: function () {
+                    // Handle the request failure if needed
+                    alert('Error making the request.');
+                }
+            });
+        });
+    });
+</script>
+
 </html>

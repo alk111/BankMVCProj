@@ -219,3 +219,65 @@ System.Net.Sockets.SocketException (0x80004005): An address incompatible with th
    at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
    at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
    at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-25 16:34:59,143 [1] DEBUG HibernatingRhinos.Profiler.Client.App [(null)] - Profiler initialized. Build: 6045
+2023-12-25 16:35:01,899 [1] WARN  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 01/18/2024 00:00:00
+2023-12-25 16:35:02,041 [1] DEBUG Rhino.Licensing.AbstractLicenseValidator [(null)] - License accepted for NHibernate Profiler
+2023-12-25 16:35:02,062 [6] INFO  HibernatingRhinos.Profiler.Client.Infrastructure.AutoUpdate.ProfilerAutoUpdate [(null)] - Checking for updates...
+2023-12-25 16:35:02,074 [1] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [2610:20:6f15:15::27]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-25 16:35:02,188 [1] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time-nw.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [64:ff9b::836b:d64]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-25 16:35:02,251 [1] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time-a.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [64:ff9b::8106:f1c]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-25 16:35:03,151 [1] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time-b.nist.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [64:ff9b::8106:f1d]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-25 16:35:03,402 [1] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time-a.timefreq.bldrdoc.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [64:ff9b::84a3:6001]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-25 16:35:03,964 [9] INFO  HibernatingRhinos.Profiler.Client.Infrastructure.AutoUpdate.ProfilerAutoUpdate [(null)] - There is no update available.
+2023-12-25 16:35:05,384 [1] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time-b.timefreq.bldrdoc.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [64:ff9b::84a3:6002]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-25 16:35:06,340 [1] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: time-c.timefreq.bldrdoc.gov
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [64:ff9b::84a3:6003]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-25 16:35:06,916 [1] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: utcnist.colorado.edu
+System.Net.Sockets.SocketException (0x80004005): An address incompatible with the requested protocol was used [64:ff9b::808a:8c2c]:123
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.UdpClient.Connect(IPEndPoint endPoint)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()
+2023-12-25 16:35:07,446 [1] DEBUG Rhino.Licensing.SntpClient [(null)] - Could not get time from: nist1.datum.com
+System.Net.Sockets.SocketException (0x80004005): No such host is known
+   at System.Net.Dns.HostResolutionEndHelper(IAsyncResult asyncResult)
+   at System.Net.Dns.EndGetHostAddresses(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Rhino.Licensing.SntpClient.<GetDateAsync>d__9.MoveNext()

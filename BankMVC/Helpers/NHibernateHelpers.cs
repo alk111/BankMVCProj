@@ -29,9 +29,6 @@ namespace BankMVC.Helpers
                     .Mappings(m => m.FluentMappings.Add<AccountTypeMap>())
                     .BuildSessionFactory();
 
-                //var cfg = new Configuration().Configure("..\\..\\hibernate.cfg.xml")
-                //    .AddAssembly(Assembly.GetExecutingAssembly());
-                //_sessionFactory = cfg.BuildSessionFactory();
             }
             return _sessionFactory.OpenSession();
         }

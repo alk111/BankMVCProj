@@ -142,3 +142,10 @@ D:\Swabhav_Bank\BankMVC\bin\System.Text.Encodings.Web.xml
 D:\Swabhav_Bank\BankMVC\bin\System.Text.Json.xml
 D:\Swabhav_Bank\BankMVC\bin\System.Threading.Tasks.Extensions.xml
 D:\Swabhav_Bank\BankMVC\bin\System.ValueTuple.xml
+D:\Swabhav_Bank\BankMVC\bin\EPPlus.dll
+D:\Swabhav_Bank\BankMVC\bin\EPPlus.Interfaces.dll
+D:\Swabhav_Bank\BankMVC\bin\EPPlus.System.Drawing.dll
+D:\Swabhav_Bank\BankMVC\bin\Microsoft.IO.RecyclableMemoryStream.dll
+D:\Swabhav_Bank\BankMVC\bin\System.ComponentModel.Annotations.dll
+D:\Swabhav_Bank\BankMVC\bin\EPPlus.xml
+D:\Swabhav_Bank\BankMVC\bin\Microsoft.IO.RecyclableMemoryStream.xml
