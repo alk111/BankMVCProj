@@ -16,10 +16,10 @@ namespace BankMVC.ViewModels
         public virtual decimal Amount { get; set; }
         [Required(ErrorMessage = "Date is required.")]
         public virtual DateTime Date { get; set; }
-        [Required(ErrorMessage = "To Account Number is required.")]
-        public virtual string ToAccountNumber { get; set; }
         [Required(ErrorMessage = "From Account Number is required.")]
         public virtual string FromAccountNumber { get; set; }
+        [Required(ErrorMessage = "To Account Number is required.")]
+        public virtual string ToAccountNumber { get; set; }
         [Required(ErrorMessage = "AccountId is required.")]
         public virtual int AccountId { get; set; }
     }

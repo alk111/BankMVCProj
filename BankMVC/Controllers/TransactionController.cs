@@ -5,10 +5,8 @@ using BankMVC.ViewModels;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using LicenseContext = OfficeOpenXml.LicenseContext;
 
@@ -201,7 +199,7 @@ namespace BankMVC.Controllers
         {
             //var account = _accountService.GetById(transactionVM.AccountId);
             var account = _accountService.GetByAccountNumber(transactionVM.ToAccountNumber);
-            transactionVM.TransactionType = "Deposit";
+            transactionVM.TransactionType = "Credit";
             transactionVM.AccountId = account.Id;
             if (account != null)
             {
@@ -225,7 +223,7 @@ namespace BankMVC.Controllers
             //transactionVM.ToAccountNumber = null;
             //var account = _accountService.GetById(transactionVM.AccountId);
             var account = _accountService.GetByAccountNumber(transactionVM.FromAccountNumber);
-            transactionVM.TransactionType = "Withdraw";
+            transactionVM.TransactionType = "Debit";
             transactionVM.AccountId= account.Id;
             if (account != null)
             {
@@ -242,13 +240,7 @@ namespace BankMVC.Controllers
             return Json(new { success = false, message = "No such Account Found." });
 
         }
-        //[HttpPost]
-        //public ActionResult SetSessionValue(string value)
-        //{
-
-        //    Session["Transaction"] = value;
-        //    return Json(new { success = true });
-        //}
+       
 
         [HttpGet]
         public ActionResult Transfer()

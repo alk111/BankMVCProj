@@ -131,7 +131,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     @Html.ActionLink("Update Profile", "Edit", "Customer", new { area = "" }, new { @class = "dropdown-item" })
-                                    @Html.ActionLink("Change Password", "Action2", "Controller", new { area = "" }, new { @class = "dropdown-item" })
+                                    @Html.ActionLink("Change Password", "ChangePassword", "User", new { area = "" }, new { @class = "dropdown-item" })
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -139,12 +139,17 @@
                                     Transactions
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <button class = "dropdown-item">siuhksbdbksbsbdj</button>
-                                    @Html.ActionLink("Withdraw", "Edit", "Customer", new { area = "", value = "Withdraw" }, new { @class = "dropdown-item setSessionLink" })
-                                    @Html.ActionLink("Deposit", "Action2", "Controller", new { area = "", value = "Deposit" }, new { @class = "dropdown-item setSessionLink" })
+                                    @*<button class = "dropdown-item">siuhksbdbksbsbdj</button>*@
+                                    @Html.ActionLink("Withdraw", "Withdraw", "Transaction", new { area = "", value = "Withdraw" }, new { @class = "dropdown-item setSessionLink" })
+                                    @Html.ActionLink("Deposit", "Deposit", "Transaction", new { area = "", value = "Deposit" }, new { @class = "dropdown-item setSessionLink" })
                                     @Html.ActionLink("Transfer", "Transfer", "Transaction", new { area = "", value = "Transfer" }, new { @class = "dropdown-item setSessionLink" })
                                 </div>
                             </li>
+                        }
+                        else if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item" style="margin-left:-170px;">@Html.ActionLink("Dashboard", "AdminDashboard", "Customer", new { area = "" }, new { @class = "nav-link btn " })</li>
+                            <li class="nav-item" >@Html.ActionLink("Customers", "Index", "Customer", new { area = "" }, new { @class = "nav-link btn " })</li>
                         }
                         <li class="nav-item logout-button">
                             @Html.ActionLink("Logout", "Logout", "Login", new { area = "" }, new { @class = "btn btn-danger" })
@@ -168,6 +173,8 @@
             <p>&copy; @DateTime.Now.Year - MyBank</p>
         </footer>
     </div>
+
+
 
     <!-- Uncomment this line if you need jQuery -->
     <!-- @Scripts.Render("~/bundles/jquery") -->

@@ -67,8 +67,8 @@
 </style>
 
 <div class="container">
-    <h2>Welcome, Admin!</h2>
-
+    <h2>Welcome, @Session["User"]!</h2>
+    <br />
     <div class="dashboard-container">
         <!-- Card 1 -->
         <div class="card">
@@ -88,13 +88,12 @@
         <div class="card">
             <h2>Recent Orders</h2>
             <p><label>Total Orders:</label> </p>
-            @Html.ActionLink("View Document", "Orders", "Admin", null, new { @class = "card-button btn btn-primary" })
+            @Html.ActionLink("View Document", "Index", "Document", null, new { @class = "card-button btn btn-primary" })
         </div>
 
         
     </div>
 </div>
-<br />
 <br />
 <br />
 <br />

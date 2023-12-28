@@ -48,8 +48,9 @@ namespace BankMVC.Controllers
             }
             if (result != null)
             {
-                //Session["User"] = result.Name;
+                Session["User"] = result.Username;
                 //Session["Role"] = result.Role.RoleName;
+                Session["UserId"] = result.Id;
                 var customers = _customerService.GetAll();
                 var data = customers.Where(x => x.User.Id == user.Id).FirstOrDefault();
                 Session["LoginId"] = data.Id;
@@ -65,7 +66,7 @@ namespace BankMVC.Controllers
         }
         public ActionResult Logout()
         {
-            //Session.Clear();
+            Session.Clear();
             FormsAuthentication.SignOut();
             return RedirectToAction("Login");
         }

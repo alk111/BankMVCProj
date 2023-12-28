@@ -132,18 +132,25 @@ namespace BankMVC.Controllers
             ViewBag.Message = "Added Successfully";
             return View();
         }
+        [HttpGet]
+        public ActionResult Edit()
+        {
+            int id = (int)Session["LoginId"];
+            var custData = _customerService.GetById(id);
+            var custDataVM = _customerAssembler.ConvertToViewModel(custData);
+            return View(custDataVM);
+        }
         
         [HttpPost]
-        public ActionResult Edit(Customer customer)
+        public ActionResult Edit(CustomerVM customerVM)
         {
-            var existingCustomer = _customerService.GetById(customer.Id);
+            var existingCustomer = _customerService.GetById(customerVM.Id);
             if (existingCustomer != null)
             {
-                existingCustomer.FirstName = customer.FirstName;
-                existingCustomer.LastName = customer.LastName;
-                existingCustomer.Email = customer.Email;
-                existingCustomer.Accounts = customer.Accounts;
-                _customerService.Update(existingCustomer);
+                customerVM.UserId=existingCustomer.User.Id;
+                customerVM.IsActive = true;
+                var updatedCust = _customerAssembler.ConvertToModel(customerVM);
+                _customerService.Update(updatedCust);
 
                 return Json(new { success = true, message = "User updated successfully." });
             }

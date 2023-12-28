@@ -65,6 +65,31 @@ namespace BankMVC.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult ChangePassword()
+        {
+            //var userData = _userService.GetById(id);
+            //var userDataVM = _userAssembler.ConvertToViewModel(userData);
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ChangePassword(UserVM userVM,string confirmNewPassword)
+        {
+            if(userVM.Password != confirmNewPassword)
+            {
+                return Json(new { success = false, message = "New Password and Confirm Password not matching." });
+            }
+            userVM.Id = (int)Session["UserId"];
+            var user = _userService.GetById(userVM.Id);
+            if (user != null)
+            {
+                user.Password = confirmNewPassword;
+                //var updatedUser = _userAssembler.ConvertToModel(userVM);
+                _userService.Update(user);
+            }
+            return Json(new { success = true, message = "Password Changed Successfully." });
+        }
         [HttpGet]
         public ActionResult Delete(int id)
         {
