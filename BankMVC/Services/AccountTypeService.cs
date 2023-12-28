@@ -34,5 +34,9 @@ namespace BankMVC.Services
         {
             return _accountTypeRepository.GetAll();
         }
+        public AccountType GetByType(string Type)
+        {
+            return _accountTypeRepository.GetByType(Type);
+        }
     }
 }

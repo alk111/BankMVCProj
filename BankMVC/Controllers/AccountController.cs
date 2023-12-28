@@ -17,12 +17,14 @@ namespace BankMVC.Controllers
         // GET: User
         private readonly IAccountService _accountService;
         private readonly AccountAssembler _accountAssembler;
+        private readonly IAccountTypeService _accountTypeService;
         public AccountController(IAccountService accountService
-        , AccountAssembler accountAssembler)
+        , AccountAssembler accountAssembler,
+IAccountTypeService accountTypeService)
         {
             _accountService = accountService;
             _accountAssembler = accountAssembler;
-
+            _accountTypeService = accountTypeService;
         }
         [Authorize(Roles = "Admin , Customer")]
         public ActionResult Index()
@@ -42,14 +44,23 @@ namespace BankMVC.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            var accVM= new AccountVM();
+            List<string> stringList = _accountTypeService.GetAll().Select(x => x.Type).ToList();
+            // Convert List<string> to List<SelectListItem>
+            accVM.AccountTypes = stringList.Select(item => new SelectListItem
+            {
+                Text = item,
+                Value = item
+            }).ToList();
+            return View(accVM);
         }
         [Authorize(Roles = "Customer")]
         [HttpPost]
-        public ActionResult Create(AccountVM accountVM)
+        public ActionResult Create(AccountVM accountVM )
         {
             ModelState.Remove("CustomerId");
             ModelState.Remove("AccountNo");
+            ModelState.Remove("AccountTypeId");
             if (ModelState.IsValid)
             {
                 int length = 3;
@@ -77,11 +88,19 @@ namespace BankMVC.Controllers
                 accountVM.AccountNo = str_build.ToString();
                 accountVM.CustomerId =(int) Session["LoginId"];
                 accountVM.IsActive = true;
+                List<string> stringList = _accountTypeService.GetAll().Select(x => x.Type).ToList();
+                // Convert List<string> to List<SelectListItem>
+                accountVM.AccountTypes = stringList.Select(item => new SelectListItem
+                {
+                    Text = item,
+                    Value = item
+                }).ToList();
+                accountVM.AccountTypeId = _accountTypeService.GetByType(accountVM.StoreAccountType).Id;
                 var account = _accountAssembler.ConvertToModel(accountVM);
                 var newUser = _accountService.Add(account);
                 ViewBag.Message = "Added Successfully";
                 ViewBag.Status = "Successfull";
-                return View();
+                return View(accountVM);
             }
             return View();
         }

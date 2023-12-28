@@ -55,7 +55,21 @@ namespace BankMVC.Repository
             {
                 using (var txn = session.BeginTransaction())
                 {
-                    accountType = session.Load<AccountType>(accountTypeId);
+                    accountType = session.Query<AccountType>().Where(x=>x.Id==accountTypeId).FirstOrDefault();
+                    txn.Commit();
+
+                }
+            }
+            return accountType;
+        }
+        public AccountType GetByType(string Type)
+        {
+            AccountType accountType = null;
+            using (var session = NHibernateHelpers.OpenSession())
+            {
+                using (var txn = session.BeginTransaction())
+                {
+                    accountType = session.Query<AccountType>().Where(x=>x.Type==Type).FirstOrDefault();
                     txn.Commit();
 
                 }

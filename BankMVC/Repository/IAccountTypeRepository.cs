@@ -13,5 +13,6 @@ namespace BankMVC.Repository
         string Delete(AccountType accountType);
         AccountType GetById(int accountTypeId);
         List<AccountType> GetAll();
+        AccountType GetByType(string Type);
     }
 }

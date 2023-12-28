@@ -42,8 +42,9 @@ namespace BankMVC.Assemblers
                 AccountTypeId = account.AccountType.Id,
                 Balance = account.Balance,
                 CustomerId = account.Customer.Id,
-                IsActive = account.IsActive,    
+                IsActive = account.IsActive,
                 TransactionsCount = account.Transactions != null ? account.Transactions.Count : 0,
+                //AccountTypes = _accountTypeService.GetAll().Select(x => x.Type).ToList()
             };
         }
     }

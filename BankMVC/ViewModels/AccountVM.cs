@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace BankMVC.ViewModels
 {
@@ -20,5 +21,7 @@ namespace BankMVC.ViewModels
         public virtual int CustomerId { get; set; }
         public virtual int TransactionsCount { get; set; }
         public virtual bool IsActive { get; set; }
+        public virtual List<SelectListItem> AccountTypes { get; set; }
+        public virtual string StoreAccountType { get; set; }
     }
 }
