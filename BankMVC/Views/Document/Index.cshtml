@@ -3,47 +3,100 @@
 @{
     ViewBag.Title = "Index";
 }
+<style>
+    body {
+        background-color: #f0f0f0;
+        color: #333;
+    }
 
-<h2>Index</h2>
+    .container {
+        margin-top: auto;
+    }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.DocumentName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustomerId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsVerified)
-        </th>
-        <th></th>
-    </tr>
+    h2 {
+        text-align: center;
+        color: #3498db;
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DocumentName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustomerId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsVerified)
-        </td>
-        @*<td>
-           
-            <embed src="data:application/pdf;base64,@Convert.ToBase64String(item.DocumentFile)" type="application/pdf" width="100%" height="600px" />
-        </td>*@
-    <td>
-        @Html.ActionLink("View Document", "ViewDocument", new { id = item.Id, fileName = item.DocumentName }) |
-        @Html.ActionLink("Verify", "Verify", new { id = item.Id }) 
-        @*@Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
-    </td>
-    </tr>
+    #grid {
+        width: 100%;
+        margin-top: 20px;
+        overflow-x: auto;
+    }
+
+    #pager {
+        margin-top: 10px;
+    }
+
+    .btn-primary {
+        background-color: #3498db;
+        border-color: #3498db;
+        font-size: large;
+        color: black;
+    }
+
+        .btn-primary:hover {
+            background-color: #2a80b9;
+            border-color: #2a80b9;
+        }
+
+    .create-button {
+        text-align: left;
+    }
+    /*.table{
+        align-items:flex-start;
+    }*/
+</style>
+<h2>Documents</h2>
+@if (User.IsInRole("Customer"))
+{
+    <div class="create-button">
+        @Html.ActionLink("Create", "Create", "Document", new { area = "" }, new { @class = "btn btn-primary", style = "color: black;" })
+    </div>
+    <br />
 }
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DocumentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsVerified)
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DocumentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsVerified)
+                </td>
+                @*<td>
+
+                        <embed src="data:application/pdf;base64,@Convert.ToBase64String(item.DocumentFile)" type="application/pdf" width="100%" height="600px" />
+                    </td>*@
+                <td>
+                    @Html.ActionLink("View Document", "ViewDocument", new { id = item.Id, fileName = item.DocumentName })
+                    @if (User.IsInRole("Admin"))
+                    {
+
+                        @Html.ActionLink("| Verify", "Verify", new { id = item.Id });
+                    }
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+                </td>
+            </tr>
+        }
+
+    </table>

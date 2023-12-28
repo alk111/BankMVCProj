@@ -197,19 +197,33 @@ namespace BankMVC.Controllers
         [HttpPost]
         public ActionResult Deposit(TransactionVM transactionVM)
         {
-            //var account = _accountService.GetById(transactionVM.AccountId);
-            var account = _accountService.GetByAccountNumber(transactionVM.ToAccountNumber);
-            transactionVM.TransactionType = "Credit";
-            transactionVM.AccountId = account.Id;
-            if (account != null)
+            ModelState.Remove("FromAccountNumber");
+            ModelState.Remove("AccountId");
+            ModelState.Remove("TransactionType");
+            ModelState.Remove("Date");
+            if (ModelState.IsValid)
             {
-                account.Balance = account.Balance + transactionVM.Amount;
-                _accountService.Update(account);
-                var transaction = _transactionAssembler.ConvertToModel(transactionVM);
-                var newTransaction = _transactionService.Add(transaction);
-                return Json(new { success = true, message = "Amount Deposited Successfully." });
+                //var account = _accountService.GetById(transactionVM.AccountId);
+                var account = _accountService.GetByAccountNumber(transactionVM.ToAccountNumber);
+                if (account != null)
+                {
+                    transactionVM.TransactionType = "Credit";
+                    transactionVM.Date = DateTime.Now;
+                    transactionVM.AccountId = account.Id;
+                    account.Balance = account.Balance + transactionVM.Amount;
+                    _accountService.Update(account);
+                    var transaction = _transactionAssembler.ConvertToModel(transactionVM);
+                    var newTransaction = _transactionService.Add(transaction);
+                    //return Json(new { success = true, message = "Amount Deposited Successfully." });
+                    ViewBag.Message = "Amount Deposited Successfully.";
+                    ViewBag.Status = "Successfull";
+                    return View();
+                }
+                ViewBag.Message = "No such Account Found.";
+                ViewBag.Status = "Unsuccessfull";
+                //return Json(new { success = false, message = "No such Account Found." });
             }
-            return Json(new { success = false, message = "No such Account Found." });
+            return View();
         }
 
         [HttpGet]
@@ -220,24 +234,41 @@ namespace BankMVC.Controllers
         [HttpPost]
         public ActionResult Withdraw(TransactionVM transactionVM)
         {
-            //transactionVM.ToAccountNumber = null;
-            //var account = _accountService.GetById(transactionVM.AccountId);
-            var account = _accountService.GetByAccountNumber(transactionVM.FromAccountNumber);
-            transactionVM.TransactionType = "Debit";
-            transactionVM.AccountId= account.Id;
-            if (account != null)
+            ModelState.Remove("ToAccountNumber");
+            ModelState.Remove("AccountId");
+            ModelState.Remove("TransactionType");
+            ModelState.Remove("Date");
+            if (ModelState.IsValid)
             {
-                if (account.Balance > transactionVM.Amount)
+                //transactionVM.ToAccountNumber = null;
+                //var account = _accountService.GetById(transactionVM.AccountId);
+                var account = _accountService.GetByAccountNumber(transactionVM.FromAccountNumber);
+                if (account != null)
                 {
-                    account.Balance = account.Balance - transactionVM.Amount;
-                    _accountService.Update(account);
-                    var transaction = _transactionAssembler.ConvertToModel(transactionVM);
-                    var newTransaction = _transactionService.Add(transaction);
-                    return Json(new { success = true, message = "Amount Withdrawn Successfully." });
+                    transactionVM.TransactionType = "Debit";
+                    transactionVM.Date = DateTime.Now;
+                    transactionVM.AccountId = account.Id;
+                    if (account.Balance > transactionVM.Amount)
+                    {
+                        account.Balance = account.Balance - transactionVM.Amount;
+                        _accountService.Update(account);
+                        var transaction = _transactionAssembler.ConvertToModel(transactionVM);
+                        var newTransaction = _transactionService.Add(transaction);
+                        //return Json(new { success = true, message = "Amount Withdrawn Successfully." });
+                        ViewBag.Message = "Amount Withdrawn Successfully.";
+                        ViewBag.Status = "Successfull";
+                        return View();
+                    }
+                    ViewBag.Message = "Insufficent Balance.";
+                    ViewBag.Status = "Unsuccessfull";
+                    return View();
+                    //return Json(new { success = false, message = "Insufficent Balance." });
                 }
-                return Json(new { success = false, message = "Insufficent Balance." });
+                ViewBag.Message = "No such Account Found.";
+                ViewBag.Status = "Unsuccessfull";
+                //return Json(new { success = false, message = "No such Account Found." });
             }
-            return Json(new { success = false, message = "No such Account Found." });
+            return View();
 
         }
        
@@ -250,11 +281,33 @@ namespace BankMVC.Controllers
         [HttpPost]
         public ActionResult Transfer(TransactionVM transactionVM)
         {
-           
-            Withdraw(transactionVM);
-            Deposit(transactionVM);
+            ModelState.Remove("AccountId");
+            ModelState.Remove("TransactionType");
+            ModelState.Remove("Date");
+            if (ModelState.IsValid)
+            {
 
-            return Json(new { success = true, message = "Amount Transferd Successfully." });
+                Withdraw(transactionVM);
+                if(ViewBag.Status!= "Successfull")
+                {
+                    ViewBag.Message = "Withdraw Failed";
+                    ViewBag.Status = "Unsuccessfull";
+                    return View();
+                }
+                Deposit(transactionVM);
+                if (ViewBag.Status != "Successfull")
+                {
+                    ViewBag.Message = "Deposit Failed";
+                    ViewBag.Status = "Unsuccessfull";
+                    return View();
+                }
+
+                //return Json(new { success = true, message = "Amount Transferd Successfully." });
+                ViewBag.Message = "Amount Transferd Successfully.";
+                ViewBag.Status = "Successfull";
+                return View();
+            }
+            return View();
         }
 
     }

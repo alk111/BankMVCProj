@@ -3,7 +3,27 @@
 @{
     ViewBag.Title = "Deposit";
 }
+@{
+    if (ViewBag.Message != null)
+    {
+        <script>
+                 alert("@ViewBag.Message")
 
+        </script>
+    }
+
+    if (ViewBag.Status == "Successfull")
+    {
+        <script>
+
+            window.onload = () => {
+                window.location.href ='@Url.Action("CustomerDashboard", "Customer")';
+            };
+        </script>
+
+
+    }
+}
 <style>
     body {
         background-color: #f5f5f5;
@@ -103,13 +123,13 @@
                     </div>
 
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+                    @*<div class="form-group">
+                            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
                     <div class="form-group">
                         @Html.LabelFor(model => model.ToAccountNumber, "To Account Number", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10" style="margin-top:10px">

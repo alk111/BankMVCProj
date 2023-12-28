@@ -14,6 +14,7 @@ namespace BankMVC.ViewModels
         [Required(ErrorMessage = "Account Type is required.")]
         public virtual int AccountTypeId { get; set; }
         [Required(ErrorMessage = "Balance is required.")]
+        [Range(0, double.MaxValue, ErrorMessage = "Balance must be non-negative.")]
         public virtual decimal Balance { get; set; }
         [Required(ErrorMessage = "CustomerId is required.")]
         public virtual int CustomerId { get; set; }

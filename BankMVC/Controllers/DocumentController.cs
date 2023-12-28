@@ -1,4 +1,5 @@
 ﻿using BankMVC.Assemblers;
+using BankMVC.Models;
 using BankMVC.Services;
 using BankMVC.ViewModels;
 using System;
@@ -27,7 +28,16 @@ namespace BankMVC.Controllers
         //}
         public ActionResult Index()
         {
-            var documents = _documentService.GetAll();
+            List<Document> documents = new List<Document>();
+            if (User.IsInRole("Customer"))
+            {
+                int tempData = (int)Session["LoginId"];
+                documents = _documentService.GetAll().Where(x => x.Customer.Id == tempData).ToList();
+            }
+            else
+            {
+                documents = _documentService.GetAll();
+            }
             var documentVMs = documents.Select(d => _documentAssembler.ConvertToViewModel(d)).ToList();
             return View(documentVMs);
         }
@@ -41,10 +51,23 @@ namespace BankMVC.Controllers
         [HttpPost]
         public ActionResult Create(DocumentVM documentVM ,HttpPostedFileBase file)
         {
-            documentVM.PostedFile = file;
-            var document = _documentAssembler.ConvertToModel(documentVM);
-            var newDocument = _documentService.Add(document);
-            ViewBag.Message = "Added Successfully";
+            ModelState.Remove("CustomerId");
+            if (ModelState.IsValid )
+            {
+                if (file != null)
+                {
+                    documentVM.PostedFile = file;
+                    documentVM.CustomerId = (int)Session["LoginId"];
+                    var document = _documentAssembler.ConvertToModel(documentVM);
+                    var newDocument = _documentService.Add(document);
+                    ViewBag.Message = "Added Successfully";
+                    ViewBag.Status = "Successfull";
+                    //return RedirectToAction("CustomerDashboar", "Customer");
+                    return View();
+                }
+                ViewBag.Message = "Select a file to upload";
+                ViewBag.Status = "Unsuccessfull";
+            }
             return View();
         }
 

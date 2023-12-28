@@ -3,6 +3,39 @@
 @{
     ViewBag.Title = "Customer Registration";
 }
+@{
+    if (ViewBag.Message != null)
+    {
+        <script>
+                 alert("@ViewBag.Message")
+
+        </script>
+    }
+
+    if (ViewBag.Status == "Successfull")
+    {
+        if (User.Identity.IsAuthenticated)
+        {
+            <script>
+
+            window.onload = () => {
+                window.location.href ='@Url.Action("AdminDashboard", "Customer")';
+            };
+            </script>
+
+        }
+        else
+        {
+            <script>
+
+                 window.onload = () => {
+                     window.location.href ='@Url.Action("Login", "Login")';
+                 };
+            </script>
+
+        }
+    }
+}
 
 <style>
     body {

@@ -16,5 +16,6 @@ namespace BankMVC.Services
         List<User> GetAll();
         User GetUserWithRole(int id);
         User GetUserByUsername(string username);
+        bool IsUniqueUserName(string username);
     }
 }

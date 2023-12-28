@@ -72,21 +72,35 @@ namespace BankMVC.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult ChangePassword(UserVM userVM,string confirmNewPassword)
+        public ActionResult ChangePassword(UserVM userVM, string confirmNewPassword)
         {
-            if(userVM.Password != confirmNewPassword)
+            ModelState.Remove("Username");
+            ModelState.Remove("RoleId");
+            if (ModelState.IsValid)
             {
-                return Json(new { success = false, message = "New Password and Confirm Password not matching." });
+                if (userVM.Password != confirmNewPassword)
+                {
+                    //return Json(new { success = false, message = "New Password and Confirm Password not matching." });
+                    ViewBag.Message = "New Password and Confirm Password not matching";
+                    ViewBag.Status = "Unsuccessfull";
+                    return View();
+                }
+                userVM.Id = (int)Session["UserId"];
+                var user = _userService.GetById(userVM.Id);
+                if (user != null)
+                {
+                    user.Password = confirmNewPassword;
+                    //var updatedUser = _userAssembler.ConvertToModel(userVM);
+                    _userService.Update(user);
+                    ViewBag.Message = "Password Changed successfully.";
+                    ViewBag.Status = "Successfull";
+                    return View();
+                }
+                ViewBag.Message = "No such User Exists";
+                ViewBag.Status = "Unsuccessfull";
+                //return Json(new { success = true, message = "Password Changed Successfully." });
             }
-            userVM.Id = (int)Session["UserId"];
-            var user = _userService.GetById(userVM.Id);
-            if (user != null)
-            {
-                user.Password = confirmNewPassword;
-                //var updatedUser = _userAssembler.ConvertToModel(userVM);
-                _userService.Update(user);
-            }
-            return Json(new { success = true, message = "Password Changed Successfully." });
+            return View();
         }
         [HttpGet]
         public ActionResult Delete(int id)

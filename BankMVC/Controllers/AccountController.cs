@@ -45,32 +45,41 @@ namespace BankMVC.Controllers
         [HttpPost]
         public ActionResult Create(AccountVM accountVM)
         {
-            int length = 3;
-
-            // creating a StringBuilder object()
-            StringBuilder str_build = new StringBuilder();
-            Random random = new Random();
-
-            char letter;
-            int shift = 0;
-            int v = 0;
-            for (int i = 0; i < length; i++)
+            ModelState.Remove("CustomerId");
+            ModelState.Remove("AccountNo");
+            if (ModelState.IsValid)
             {
-                double flt = random.NextDouble();
-                v = random.Next(100, 999);
-                shift = Convert.ToInt32(Math.Floor(25 * flt));
-                letter = Convert.ToChar(shift + 65);
+                int length = 3;
 
-                str_build.Append(letter);
+                // creating a StringBuilder object()
+                StringBuilder str_build = new StringBuilder();
+                Random random = new Random();
+
+                char letter;
+                int shift = 0;
+                int v = 0;
+                for (int i = 0; i < length; i++)
+                {
+                    double flt = random.NextDouble();
+                    v = random.Next(100, 999);
+                    shift = Convert.ToInt32(Math.Floor(25 * flt));
+                    letter = Convert.ToChar(shift + 65);
+
+                    str_build.Append(letter);
+                }
+                str_build.Append(v.ToString());
+
+
+
+                accountVM.AccountNo = str_build.ToString();
+                accountVM.CustomerId =(int) Session["LoginId"];
+                accountVM.IsActive = true;
+                var account = _accountAssembler.ConvertToModel(accountVM);
+                var newUser = _accountService.Add(account);
+                ViewBag.Message = "Added Successfully";
+                ViewBag.Status = "Successfull";
+                return View();
             }
-            str_build.Append(v.ToString());
-
-
-
-            accountVM.AccountNo = str_build.ToString();
-            var account = _accountAssembler.ConvertToModel(accountVM);
-            var newUser = _accountService.Add(account);
-            ViewBag.Message = "Added Successfully";
             return View();
         }
         [HttpGet]

@@ -13,6 +13,7 @@ namespace BankMVC.ViewModels
         [StringLength(10, MinimumLength = 4, ErrorMessage = "Transaction Type should contain min 4 and max 10 alphabets")]
         public virtual string TransactionType { get; set; }
         [Required(ErrorMessage = "Amount is required.")]
+        [Range(0, double.MaxValue, ErrorMessage = "Amount must be non-negative.")]
         public virtual decimal Amount { get; set; }
         [Required(ErrorMessage = "Date is required.")]
         public virtual DateTime Date { get; set; }

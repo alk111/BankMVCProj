@@ -8,14 +8,15 @@
 @{
     if (ViewBag.Message != null)
     {
-        <script>
+        <script style="font-size:large;">
             Swal.fire({
                 title: "Invalid!",
                 text: "@ViewBag.Message",
-                icon: "error"
+                icon: "error",
             });
         </script>
     }
+    
 }
 
 <style>

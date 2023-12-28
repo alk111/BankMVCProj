@@ -4,7 +4,7 @@
         mtype: 'GET',
         datatype: 'json',
         contentType: "application/json; charset-utf-8",
-        colNames: ['Id', 'FirstName', 'LastName', 'ContactNo', 'Email', 'UserId', 'IsActive', 'AccountsCount', 'DocumentsCount'],
+        colNames: ['Id', 'FirstName', 'LastName', 'ContactNo', 'Email', 'UserName', 'IsActive', 'AccountsCount', 'DocumentsCount'],
         colModel: [
             { label: 'Id', name: 'Id', key: true, search: true },
             { label: 'FirstName', name: 'FirstName', editable: true, search: true },

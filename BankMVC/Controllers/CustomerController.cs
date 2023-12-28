@@ -19,7 +19,7 @@ namespace BankMVC.Controllers
         private CustomerAssembler _customerAssembler;
         private IUserService _userService;
         private UserAssembler _userAssembler;
-        public CustomerController(ICustomerService customerService, CustomerAssembler customerAssembler, IUserService userService , UserAssembler userAssembler)
+        public CustomerController(ICustomerService customerService, CustomerAssembler customerAssembler, IUserService userService, UserAssembler userAssembler)
         {
             _customerService = customerService;
             _customerAssembler = customerAssembler;
@@ -94,7 +94,7 @@ namespace BankMVC.Controllers
                                         customer.LastName,
                                         customer.ContactNo.ToString(),
                                         customer.Email,
-                                        customer.User.Id.ToString(),
+                                        customer.User.Username.ToString(),
                                         customer.IsActive.ToString(),
                                         customer.Accounts.Count.ToString(),
                                         customer.Documents.Count.ToString(),
@@ -117,20 +117,31 @@ namespace BankMVC.Controllers
         [HttpPost]
         public ActionResult Create(CustomerVM customerVM)
         {
-            var userVM = new UserVM()
+            if (ModelState.IsValid)
             {
-                Username = customerVM.Username,
-                Password = customerVM.Password,
-                RoleId = 2
-            };
-            var newUser = _userAssembler.ConvertToModel(userVM);
-            
-            var customer = _customerAssembler.ConvertToModel(customerVM);
-            customer.User = _userService.Add(newUser);
-            
-            var newCustomer = _customerService.Add(customer);
-            ViewBag.Message = "Added Successfully";
-            return View();
+                bool isUnique = _userService.IsUniqueUserName(customerVM.Username);
+                if (isUnique)
+                {
+                    var userVM = new UserVM()
+                    {
+                        Username = customerVM.Username,
+                        Password = customerVM.Password,
+                        RoleId = 2
+                    };
+                    var newUser = _userAssembler.ConvertToModel(userVM);
+
+                    var customer = _customerAssembler.ConvertToModel(customerVM);
+                    customer.User = _userService.Add(newUser);
+
+                    var newCustomer = _customerService.Add(customer);
+                    ViewBag.Message = "Added Successfully";
+                    ViewBag.Status = "Successfull";
+                    return View();
+                }
+                ViewBag.Message = "UserName is not unique";
+                ViewBag.Status = "Unsuccessfull";
+            }
+            return View(customerVM);
         }
         [HttpGet]
         public ActionResult Edit()
@@ -140,28 +151,40 @@ namespace BankMVC.Controllers
             var custDataVM = _customerAssembler.ConvertToViewModel(custData);
             return View(custDataVM);
         }
-        
+
         [HttpPost]
         public ActionResult Edit(CustomerVM customerVM)
         {
-            var existingCustomer = _customerService.GetById(customerVM.Id);
-            if (existingCustomer != null)
+            ModelState.Remove("Username");
+            ModelState.Remove("Password");
+            if (ModelState.IsValid)
             {
-                customerVM.UserId=existingCustomer.User.Id;
-                customerVM.IsActive = true;
-                var updatedCust = _customerAssembler.ConvertToModel(customerVM);
-                _customerService.Update(updatedCust);
+                var existingCustomer = _customerService.GetById(customerVM.Id);
+                if (existingCustomer != null)
+                {
+                    customerVM.UserId = existingCustomer.User.Id;
+                    customerVM.IsActive = true;
+                    var updatedCust = _customerAssembler.ConvertToModel(customerVM);
+                    _customerService.Update(updatedCust);
 
-                return Json(new { success = true, message = "User updated successfully." });
+                    //return Json(new { success = true, message = "User updated successfully." });
+                    ViewBag.Message = "User updated successfully.";
+                    ViewBag.Status = "Successfull";
+                    return View();
+                }
+
+                ViewBag.Message = "No such User Exists";
+                ViewBag.Status = "Unsuccessfull";
+                //return Json(new { success = false, message = "No such User Exists" });
             }
 
+            return View(customerVM);
 
-            return Json(new { success = false, message = "No such User Exists" });
         }
         [HttpPost]
         public ActionResult EditByJQGrid(Customer customer)
         {
-            
+
             var existingCustomer = _customerService.GetById(customer.Id);
             if (existingCustomer != null)
             {
@@ -171,7 +194,7 @@ namespace BankMVC.Controllers
                 existingCustomer.ContactNo = customer.ContactNo;
                 existingCustomer.Accounts = customer.Accounts;
                 _customerService.Update(existingCustomer);
-               
+
                 return Json(new { success = true, message = "User updated successfully." });
             }
             return Json(new { success = false, message = "No such User Exists" });
