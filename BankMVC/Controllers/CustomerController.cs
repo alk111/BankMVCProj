@@ -158,7 +158,25 @@ namespace BankMVC.Controllers
 
             return Json(new { success = false, message = "No such User Exists" });
         }
-        
+        [HttpPost]
+        public ActionResult EditByJQGrid(Customer customer)
+        {
+            
+            var existingCustomer = _customerService.GetById(customer.Id);
+            if (existingCustomer != null)
+            {
+                existingCustomer.FirstName = customer.FirstName;
+                existingCustomer.LastName = customer.LastName;
+                existingCustomer.Email = customer.Email;
+                existingCustomer.ContactNo = customer.ContactNo;
+                existingCustomer.Accounts = customer.Accounts;
+                _customerService.Update(existingCustomer);
+               
+                return Json(new { success = true, message = "User updated successfully." });
+            }
+            return Json(new { success = false, message = "No such User Exists" });
+        }
+
         [HttpPost]
         public ActionResult Delete(int id)
         {

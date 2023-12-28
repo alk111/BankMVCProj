@@ -30,7 +30,7 @@
         gridComplete: function () {
             $("#grid").jqGrid('navGrid', '#pager', { edit: true, add: false, del: true, refresh: true },
                 {
-                    url: '/Customer/Edit',
+                    url: '/Customer/EditByJQGrid',
                     recreateForm: true,
                     closeAfterEdit: true,
                     beforeShowForm: function (form) {
