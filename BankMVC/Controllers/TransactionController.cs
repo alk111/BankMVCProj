@@ -12,7 +12,7 @@ using LicenseContext = OfficeOpenXml.LicenseContext;
 
 namespace BankMVC.Controllers
 {
-    [AllowAnonymous]
+    [Authorize]
     public class TransactionController : Controller
     {
         private readonly ITransactionService _transactionService;
@@ -25,6 +25,7 @@ namespace BankMVC.Controllers
             _accountService = accountService;
 
         }
+        [Authorize(Roles = "Admin , Customer")]
         public ActionResult Index()
         {
             var transactions = _transactionService.GetAll();
@@ -187,13 +188,13 @@ namespace BankMVC.Controllers
             var memoryStream = new MemoryStream(package.GetAsByteArray());
             return File(memoryStream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Transactions.xlsx");
         }
-
+        [Authorize(Roles = "Customer")]
         [HttpGet]
         public ActionResult Deposit()
         {
             return View();
         }
-
+        [Authorize(Roles = "Customer")]
         [HttpPost]
         public ActionResult Deposit(TransactionVM transactionVM)
         {
@@ -225,12 +226,13 @@ namespace BankMVC.Controllers
             }
             return View();
         }
-
+        [Authorize(Roles = "Customer")]
         [HttpGet]
         public ActionResult Withdraw()
         {
             return View();
         }
+        [Authorize(Roles = "Customer")]
         [HttpPost]
         public ActionResult Withdraw(TransactionVM transactionVM)
         {
@@ -271,13 +273,14 @@ namespace BankMVC.Controllers
             return View();
 
         }
-       
 
+        [Authorize(Roles = "Customer")]
         [HttpGet]
         public ActionResult Transfer()
         {
             return View();
         }
+        [Authorize(Roles = "Customer")]
         [HttpPost]
         public ActionResult Transfer(TransactionVM transactionVM)
         {

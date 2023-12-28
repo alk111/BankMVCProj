@@ -10,8 +10,10 @@ using System.Web.Mvc;
 
 namespace BankMVC.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
+        
         // GET: User
         private readonly IUserService _userService;
         private readonly UserAssembler _userAssembler;
@@ -65,12 +67,13 @@ namespace BankMVC.Controllers
             }
             return RedirectToAction("Index");
         }
-
+        [Authorize(Roles = "Customer")]
         [HttpGet]
         public ActionResult ChangePassword()
         {
             return View();
         }
+        [Authorize(Roles = "Customer")]
         [HttpPost]
         public ActionResult ChangePassword(UserVM userVM, string confirmNewPassword)
         {

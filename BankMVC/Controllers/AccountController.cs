@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace BankMVC.Controllers
 {
-    [AllowAnonymous]
+    [Authorize]
     public class AccountController : Controller
     {
         // GET: Account
@@ -24,6 +24,7 @@ namespace BankMVC.Controllers
             _accountAssembler = accountAssembler;
 
         }
+        [Authorize(Roles = "Admin , Customer")]
         public ActionResult Index()
         {
             var accounts = _accountService.GetAll();
@@ -37,11 +38,13 @@ namespace BankMVC.Controllers
             return View(list);
             //return View();
         }
+        [Authorize(Roles = "Customer")]
         [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
+        [Authorize(Roles = "Customer")]
         [HttpPost]
         public ActionResult Create(AccountVM accountVM)
         {

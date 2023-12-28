@@ -35,6 +35,7 @@ namespace BankMVC.Assemblers
                 DocumentName = documentVM.DocumentName,
                 DocumentFile = documentFileBytes,
                 IsVerified = documentVM.IsVerified,
+                
                 //Customer = new Customer() { Id = documentVM.CustomerId },
                 Customer = cust
             };
@@ -48,6 +49,7 @@ namespace BankMVC.Assemblers
                 DocumentFile = document.DocumentFile,
                 IsVerified = document.IsVerified,
                 CustomerId = document.Customer.Id,
+                CustomerName=document.Customer.FirstName,
             };
         }
     }

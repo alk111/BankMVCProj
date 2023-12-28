@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace BankMVC.Controllers
 {
-    [AllowAnonymous]
+    [Authorize]
     public class DocumentController : Controller
     {// GET: User
         private readonly IDocumentService _documentService;
@@ -26,6 +26,7 @@ namespace BankMVC.Controllers
         //{
         //    return View();
         //}
+        [Authorize(Roles = "Admin , Customer")]
         public ActionResult Index()
         {
             List<Document> documents = new List<Document>();
@@ -41,13 +42,13 @@ namespace BankMVC.Controllers
             var documentVMs = documents.Select(d => _documentAssembler.ConvertToViewModel(d)).ToList();
             return View(documentVMs);
         }
-
+        [Authorize(Roles = "Customer")]
         [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
-
+        [Authorize(Roles = "Customer")]
         [HttpPost]
         public ActionResult Create(DocumentVM documentVM ,HttpPostedFileBase file)
         {
@@ -108,6 +109,7 @@ namespace BankMVC.Controllers
             }
             return RedirectToAction("Index");
         }
+        [Authorize(Roles = "Admin , Customer")]
         [HttpGet]
         public ActionResult ViewDocument(int id, string fileName)
         {
@@ -130,6 +132,7 @@ namespace BankMVC.Controllers
                 return HttpNotFound();
             }
         }
+        [Authorize(Roles = "Admin")]
         public ActionResult Verify(int id)
         {
             var document = _documentService.GetById(id);

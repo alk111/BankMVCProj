@@ -143,6 +143,7 @@ namespace BankMVC.Controllers
             }
             return View(customerVM);
         }
+        [Authorize(Roles = "Customer")]
         [HttpGet]
         public ActionResult Edit()
         {
@@ -151,7 +152,7 @@ namespace BankMVC.Controllers
             var custDataVM = _customerAssembler.ConvertToViewModel(custData);
             return View(custDataVM);
         }
-
+        [Authorize(Roles = "Customer")]
         [HttpPost]
         public ActionResult Edit(CustomerVM customerVM)
         {
