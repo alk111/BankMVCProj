@@ -55,7 +55,7 @@ namespace BankMVC.Repository
             {
                 using (var txn = session.BeginTransaction())
                 {
-                    document = session.Load<Document>(documentId);
+                    document = session.Query<Document>().Where(x=>x.Id==documentId).FirstOrDefault();
                     txn.Commit();
                 }
             }

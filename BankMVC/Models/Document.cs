@@ -14,5 +14,6 @@ namespace BankMVC.Models
         public virtual byte[] DocumentFile { get; set; }
 
         public virtual Customer Customer { get; set; }
+        public virtual bool IsVerified { get; set; }
     }
 }

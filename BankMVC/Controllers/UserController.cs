@@ -69,8 +69,6 @@ namespace BankMVC.Controllers
         [HttpGet]
         public ActionResult ChangePassword()
         {
-            //var userData = _userService.GetById(id);
-            //var userDataVM = _userAssembler.ConvertToViewModel(userData);
             return View();
         }
         [HttpPost]

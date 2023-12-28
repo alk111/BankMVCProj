@@ -85,5 +85,38 @@ namespace BankMVC.Controllers
             }
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult ViewDocument(int id, string fileName)
+        {
+            // Retrieve the document based on the ID
+            var document = _documentService.GetById(id);
+
+            if (document != null)
+            {
+                // Set the Content-Disposition header to "inline" to instruct the browser to display the content
+                Response.AppendHeader("Content-Disposition", "inline; filename=" + fileName);
+
+                // Set the content type appropriately based on your document type
+                Response.ContentType = "application/pdf"; // Set to "application/pdf" for PDF documents
+
+                // Write the document content to the response stream
+                return File(document.DocumentFile, "application/pdf",fileName);
+            }
+            else
+            {
+                return HttpNotFound();
+            }
+        }
+        public ActionResult Verify(int id)
+        {
+            var document = _documentService.GetById(id);
+            if (document != null)
+            {
+                document.IsVerified = true;
+                _documentService.Update(document);
+            }
+            return RedirectToAction("Index");
+        }
+
     }
 }
