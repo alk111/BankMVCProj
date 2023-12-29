@@ -13,5 +13,6 @@ namespace BankMVC.Repository
         string Delete(Transaction transaction);
         Transaction GetById(int transactionId);
         List<Transaction> GetAll();
+        List<string> GetAccountNos(int id);
     }
 }

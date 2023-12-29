@@ -39,6 +39,10 @@ namespace BankMVC.Services
         {
             return _transactionRepository.GetAll();
         }
+        public List<string> GetAccountNos(int id)
+        {
+            return _transactionRepository.GetAccountNos(id);
+        }
         public List<Transaction> GetAllByCustFilter(int tempData)
         {
             var accounts = _accountService.GetAll();

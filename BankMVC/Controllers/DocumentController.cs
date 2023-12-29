@@ -27,7 +27,8 @@ namespace BankMVC.Controllers
         //    return View();
         //}
         [Authorize(Roles = "Admin , Customer")]
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult Index(string searchString)
         {
             List<Document> documents = new List<Document>();
             if (User.IsInRole("Customer"))
@@ -38,6 +39,10 @@ namespace BankMVC.Controllers
             else
             {
                 documents = _documentService.GetAll();
+                if (!string.IsNullOrEmpty(searchString))
+                {
+                    documents = documents.Where(d => d.Customer.FirstName.Contains(searchString)).ToList();
+                }
             }
             var documentVMs = documents.Select(d => _documentAssembler.ConvertToViewModel(d)).ToList();
             return View(documentVMs);
@@ -50,10 +55,10 @@ namespace BankMVC.Controllers
         }
         [Authorize(Roles = "Customer")]
         [HttpPost]
-        public ActionResult Create(DocumentVM documentVM ,HttpPostedFileBase file)
+        public ActionResult Create(DocumentVM documentVM, HttpPostedFileBase file)
         {
             ModelState.Remove("CustomerId");
-            if (ModelState.IsValid )
+            if (ModelState.IsValid)
             {
                 if (file != null)
                 {
@@ -125,7 +130,7 @@ namespace BankMVC.Controllers
                 Response.ContentType = "application/pdf"; // Set to "application/pdf" for PDF documents
 
                 // Write the document content to the response stream
-                return File(document.DocumentFile, "application/pdf",fileName);
+                return File(document.DocumentFile, "application/pdf", fileName);
             }
             else
             {

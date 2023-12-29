@@ -26,11 +26,29 @@ namespace BankMVC.Controllers
 
         }
         [Authorize(Roles = "Admin , Customer")]
+        [HttpGet]
         public ActionResult Index()
         {
             var transactions = _transactionService.GetAll();
             var transactionVMs = transactions.Select(c => _transactionAssembler.ConvertToViewModel(c)).ToList();
+            //var accounts = _transactionService.GetAccountNos();
+            //ViewBag.AccountNumbers = accounts;
             return View(transactionVMs);
+        }
+        //public ActionResult AccountNo()
+        //{
+        //    var accounts = _transactionService.GetAccountNos();
+        //    ViewBag.AccountNumbers = accounts;
+        //    return RedirectToAction("CustomerDashboard","Customer");
+        //}
+        [Authorize(Roles ="Customer")]
+        public ActionResult SetAccountId(string accNo)
+        {
+
+            var accounts = _accountService.GetByAccountNumber(accNo);
+            Session["AccId"] = accounts.Id;
+            //ViewBag.AccountNumbers = accounts;
+            return RedirectToAction("Index", "Transaction");
         }
         [HttpGet]
         public ActionResult Create()
@@ -106,7 +124,8 @@ namespace BankMVC.Controllers
             int tempData = (int)Session["LoginId"];
             if (User.IsInRole("Customer"))
             {
-                customers = _transactionService.GetAllByCustFilter(tempData);
+                int temp = (int)Session["AccId"];
+                customers = _transactionService.GetAllByCustFilter(tempData).Where(x=>x.Account.Id==temp).ToList();
             }
             else
             {
@@ -118,12 +137,12 @@ namespace BankMVC.Controllers
                 if (int.TryParse(searchString, out searchId))
                 {
                     // If the search term is a valid integer, search by Id
-                    customers = customers.Where(e => e.Id == searchId || e.TransactionType.Contains(searchString)).ToList();
+                    customers = customers.Where(e => e.Id == searchId || e.FromAccountNumber.Contains(searchString)).ToList();
                 }
                 else
                 {
                     // If the search term is not an integer, search by FirstName or LastName
-                    customers = customers.Where(e => e.TransactionType.Contains(searchString)).ToList();
+                    customers = customers.Where(e => e.FromAccountNumber.Contains(searchString)).ToList();
                 }
             }
             // Get total count of records (for pagination)
@@ -192,13 +211,23 @@ namespace BankMVC.Controllers
         [HttpGet]
         public ActionResult Deposit()
         {
-            return View();
+            var transVM = new TransactionVM();
+            int temp = (int)Session["LoginId"];
+            List<string> stringList = _transactionService.GetAccountNos(temp);
+            
+            transVM.ToAccNo = stringList.Select(item => new SelectListItem
+            {
+                Text = item,
+                Value = item
+            }).ToList();
+            return View(transVM);
         }
         [Authorize(Roles = "Customer")]
         [HttpPost]
         public ActionResult Deposit(TransactionVM transactionVM)
         {
             ModelState.Remove("FromAccountNumber");
+            //ModelState.Remove("ToAccountNumber");
             ModelState.Remove("AccountId");
             ModelState.Remove("TransactionType");
             ModelState.Remove("Date");
@@ -211,6 +240,18 @@ namespace BankMVC.Controllers
                     transactionVM.TransactionType = "Credit";
                     transactionVM.Date = DateTime.Now;
                     transactionVM.AccountId = account.Id;
+
+
+                    int temp = (int)Session["LoginId"];
+                    List<string> stringList = _transactionService.GetAccountNos(temp);
+                    transactionVM.ToAccNo = stringList.Select(item => new SelectListItem
+                    {
+                        Text = item,
+                        Value = item
+                    }).ToList();
+
+
+                    //transactionVM.ToAccountNumber = transactionVM.StoreToAccNo;
                     account.Balance = account.Balance + transactionVM.Amount;
                     _accountService.Update(account);
                     var transaction = _transactionAssembler.ConvertToModel(transactionVM);
@@ -218,19 +259,28 @@ namespace BankMVC.Controllers
                     //return Json(new { success = true, message = "Amount Deposited Successfully." });
                     ViewBag.Message = "Amount Deposited Successfully.";
                     ViewBag.Status = "Successfull";
-                    return View();
+                    return View(transactionVM);
                 }
                 ViewBag.Message = "No such Account Found.";
                 ViewBag.Status = "Unsuccessfull";
                 //return Json(new { success = false, message = "No such Account Found." });
             }
-            return View();
+            return View(transactionVM);
         }
         [Authorize(Roles = "Customer")]
         [HttpGet]
         public ActionResult Withdraw()
         {
-            return View();
+            var transVM = new TransactionVM();
+            int temp = (int)Session["LoginId"];
+            List<string> stringList = _transactionService.GetAccountNos(temp);
+
+            transVM.FromAccNo = stringList.Select(item => new SelectListItem
+            {
+                Text = item,
+                Value = item
+            }).ToList();
+            return View(transVM);
         }
         [Authorize(Roles = "Customer")]
         [HttpPost]
@@ -250,6 +300,15 @@ namespace BankMVC.Controllers
                     transactionVM.TransactionType = "Debit";
                     transactionVM.Date = DateTime.Now;
                     transactionVM.AccountId = account.Id;
+
+                    int temp = (int)Session["LoginId"];
+                    List<string> stringList = _transactionService.GetAccountNos(temp);
+                    transactionVM.FromAccNo = stringList.Select(item => new SelectListItem
+                    {
+                        Text = item,
+                        Value = item
+                    }).ToList();
+
                     if (account.Balance > transactionVM.Amount)
                     {
                         account.Balance = account.Balance - transactionVM.Amount;
@@ -259,18 +318,18 @@ namespace BankMVC.Controllers
                         //return Json(new { success = true, message = "Amount Withdrawn Successfully." });
                         ViewBag.Message = "Amount Withdrawn Successfully.";
                         ViewBag.Status = "Successfull";
-                        return View();
+                        return View(transactionVM);
                     }
                     ViewBag.Message = "Insufficent Balance.";
                     ViewBag.Status = "Unsuccessfull";
-                    return View();
+                    return View(transactionVM);
                     //return Json(new { success = false, message = "Insufficent Balance." });
                 }
                 ViewBag.Message = "No such Account Found.";
                 ViewBag.Status = "Unsuccessfull";
                 //return Json(new { success = false, message = "No such Account Found." });
             }
-            return View();
+            return View(transactionVM);
 
         }
 
@@ -278,7 +337,17 @@ namespace BankMVC.Controllers
         [HttpGet]
         public ActionResult Transfer()
         {
-            return View();
+            var transVM = new TransactionVM();
+            int temp = (int)Session["LoginId"];
+            List<string> stringList = _transactionService.GetAccountNos(temp);
+
+            transVM.FromAccNo = stringList.Select(item => new SelectListItem
+            {
+                Text = item,
+                Value = item
+            }).ToList();
+            return View(transVM);
+            //return View();
         }
         [Authorize(Roles = "Customer")]
         [HttpPost]
@@ -291,7 +360,16 @@ namespace BankMVC.Controllers
             {
 
                 Withdraw(transactionVM);
-                if(ViewBag.Status!= "Successfull")
+
+                int temp = (int)Session["LoginId"];
+                List<string> stringList = _transactionService.GetAccountNos(temp);
+                transactionVM.FromAccNo = stringList.Select(item => new SelectListItem
+                {
+                    Text = item,
+                    Value = item
+                }).ToList();
+
+                if (ViewBag.Status!= "Successfull")
                 {
                     ViewBag.Message = "Withdraw Failed";
                     ViewBag.Status = "Unsuccessfull";
@@ -302,15 +380,15 @@ namespace BankMVC.Controllers
                 {
                     ViewBag.Message = "Deposit Failed";
                     ViewBag.Status = "Unsuccessfull";
-                    return View();
+                    return View(transactionVM);
                 }
 
                 //return Json(new { success = true, message = "Amount Transferd Successfully." });
                 ViewBag.Message = "Amount Transferd Successfully.";
                 ViewBag.Status = "Successfull";
-                return View();
+                return View(transactionVM);
             }
-            return View();
+            return View(transactionVM);
         }
 
     }

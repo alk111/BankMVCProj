@@ -21,11 +21,13 @@ namespace BankMVC.Controllers
         private readonly IUserService _userService;
         private readonly UserAssembler _userAssembler;
         private readonly ICustomerService _customerService;
-        public LoginController(IUserService userService, UserAssembler userAssembler, ICustomerService customerService)
+        private readonly ITransactionService _transactionService;
+        public LoginController(IUserService userService, UserAssembler userAssembler, ICustomerService customerService, ITransactionService transactionService)
         {
             _userService = userService;
             _userAssembler = userAssembler;
             _customerService = customerService;
+            _transactionService = transactionService;
         }
         public ActionResult Index()
         {
@@ -34,6 +36,9 @@ namespace BankMVC.Controllers
         
         public ActionResult Login()
         {
+            var strList = new List<string>();
+            strList.Add("Empty");
+            ViewBag.AccountNumbers = strList;
             return View();
         }
         [HttpPost]
@@ -66,6 +71,12 @@ namespace BankMVC.Controllers
                     FormsAuthentication.SetAuthCookie(result.Username, false);
                     if (result.Role.RoleName == "Admin")
                         return RedirectToAction("AdminDashboard", "Customer");
+                    List<string> accounts = _transactionService.GetAccountNos(data.Id);
+                    //HttpContext.Session.SetObjectAsJson("Accounts", accounts);
+                    // Set the List<string> in session
+                    Session["AccountNo"] = accounts;
+                    //ViewBag.AccountNumbers = accounts;
+                    
                     return RedirectToAction("CustomerDashboard", "Customer");
                 }
 

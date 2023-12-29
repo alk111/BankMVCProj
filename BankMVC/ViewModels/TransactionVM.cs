@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace BankMVC.ViewModels
 {
@@ -13,7 +14,7 @@ namespace BankMVC.ViewModels
         [StringLength(10, MinimumLength = 4, ErrorMessage = "Transaction Type should contain min 4 and max 10 alphabets")]
         public virtual string TransactionType { get; set; }
         [Required(ErrorMessage = "Amount is required.")]
-        [Range(0, double.MaxValue, ErrorMessage = "Amount must be non-negative.")]
+        [Range(0.0001, double.MaxValue, ErrorMessage = "Amount must be non-negative.")]
         public virtual decimal Amount { get; set; }
         [Required(ErrorMessage = "Date is required.")]
         public virtual DateTime Date { get; set; }
@@ -23,5 +24,9 @@ namespace BankMVC.ViewModels
         public virtual string ToAccountNumber { get; set; }
         [Required(ErrorMessage = "AccountId is required.")]
         public virtual int AccountId { get; set; }
+        public virtual List<SelectListItem> FromAccNo { get; set; }
+        //public virtual string StoreFromAccNo { get; set; }
+        public virtual List<SelectListItem> ToAccNo { get; set; }
+        //public virtual string StoreToAccNo { get; set; }
     }
 }

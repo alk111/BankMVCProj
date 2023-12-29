@@ -66,7 +66,23 @@ namespace BankMVC.Repository
             }
             return transaction;
         }
+        public List<string> GetAccountNos(int id)
+        {
+            List<string> transaction = new List<string>();
 
+            using (var session = NHibernateHelpers.OpenSession())
+            {
+                using (var txn = session.BeginTransaction())
+                {
+                    transaction = session.Query<Account>().Where(x=>x.Customer.Id == id && x.IsActive==true)
+                    .Select(x => x.AccountNo)
+                    .ToList();
+
+                    txn.Commit();
+                }
+            }
+            return transaction;
+        }
         public List<Transaction> GetAll()
         {
             List<Transaction> transaction = new List<Transaction>();

@@ -61,7 +61,7 @@
         color: #3498db;
         font-weight: bold;
         flex: 1;
-        padding-left: 40px;
+        padding-left: 20px;
     }
 
     .form-control {
@@ -72,7 +72,7 @@
         flex: 2;
         /*margin-top: 20px;*/
 
-        margin-left: 90px;
+        margin-left: 12px;
     }
 
     .btn-default {
@@ -116,32 +116,24 @@
 
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
+                        @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
                             @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
-
-                    @*<div class="form-group">
-                            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
-                            </div>
-                        </div>*@
                     <div class="form-group">
-                        @Html.LabelFor(model => model.ToAccountNumber, "To Account Number", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10" style="margin-top:10px">
+                        @Html.LabelFor(model => model.ToAccountNumber, "To Account Number", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8" style="margin-top:10px">
                             @Html.EditorFor(model => model.ToAccountNumber, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.ToAccountNumber, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.FromAccountNumber, "From Account Number", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10" style="margin-top:10px">
-                            @Html.EditorFor(model => model.FromAccountNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.LabelFor(model => model.FromAccountNumber, "From Account Number", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model.FromAccountNumber, Model.FromAccNo, "Select Account Type", new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.FromAccountNumber, "", new { @class = "text-danger" })
                         </div>
                     </div>

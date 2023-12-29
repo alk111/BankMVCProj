@@ -14,5 +14,6 @@ namespace BankMVC.Services
         Transaction GetById(int transactionId);
         List<Transaction> GetAll();
         List<Transaction> GetAllByCustFilter(int tempData);
+        List<string> GetAccountNos(int id);
     }
 }

@@ -21,14 +21,14 @@
 
         // Function to start the session timeout countdown
         function startSessionTimeout() {
-            var sessionTimeout = @(Session.Timeout * 10); // Convert session timeout to seconds
+            var sessionTimeout = @(Session.Timeout * 60); // Convert session timeout to seconds
             var timer = sessionTimeout;
 
             // Update the timer every second
             var intervalId = setInterval(function () {
                 timer--;
                 //console.log(isUserAuthenticated);
-                console.log(timer);
+                //console.log(timer);
                 if (timer <= 0) {
                     // Session has timed out, show a message or redirect to the login page
                     clearInterval(intervalId);
@@ -72,6 +72,10 @@
             margin-top: 20px;
             min-height: 300px; /* Set a minimum height for the content container */
             overflow: auto; /* Add overflow for content that exce*/
+        }
+        .dropdown-menu{
+            /*display:block;*/
+            
         }
 
         .navbar {
@@ -191,6 +195,25 @@
                                     @Html.ActionLink("Transfer", "Transfer", "Transaction", new { area = "", value = "Transfer" }, new { @class = "dropdown-item setSessionLink" })
                                 </div>
                             </li>
+                            <li id="dropdownContainer" class="nav-item dropdown">
+                                <a class="nav-link btn btn-profile dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Passbook
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                    @if (Session["AccountNo"] != null)
+                                    {
+                                        @*@Html.Label("Select Account",new { @class = "dropdown-item " })*@
+                                        <label style="font-size:13px;">Select Account</label>
+                                        foreach (var accountNo in Session["AccountNo"] as List<string>)
+                                        {
+                                            @Html.ActionLink(accountNo, "SetAccountId", "Transaction", new { accNo = accountNo }, new {area =""})<br />
+                                            @*<option class="searchButton" value="@accountNo">@accountNo</option>*@
+                                            @*<option>@Html.ActionLink(accountNo, "SetAccountId", "Transaction", accountNo)</option>*@
+                                        }
+                                    }
+                                   
+                            </li>
                         }
                         else if (User.IsInRole("Admin"))
                         {
@@ -227,6 +250,10 @@
 
 
 
+
+
+
+
     <!-- Uncomment this line if you need jQuery -->
     <!-- @Scripts.Render("~/bundles/jquery") -->
 
@@ -235,7 +262,31 @@
 </body>
 
 
+
+</html>
 <script>
+
+    document.getElementsByClassName("searchButton").addEventListener("click", function () {
+        @*window.location.href = '@Url.Action("SetAccountId", "Transaction")';*@
+        console.log("ajhdgasbdaksbd")
+
+        var selectedValue = $("#accountDropdown").val();
+
+            $.ajax({
+                type: "POST",
+                url: "/Transaction/SetAccountId",
+                data: { selectedValue: selectedValue },
+                success: function (response) {
+                    // Handle the response from the server
+                    console.log(response);
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+
+    });
+
     $(document).ready(function () {
         $(".setSessionValueButton").click(function () {
             //var key = "YourSessionKey";
@@ -263,5 +314,3 @@
         });
     });
 </script>
-
-</html>
