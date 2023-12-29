@@ -57,6 +57,11 @@ namespace BankMVC.Controllers
                     Session["UserId"] = result.Id;
                     var customers = _customerService.GetAll();
                     var data = customers.Where(x => x.User.Id == user.Id).FirstOrDefault();
+                    if(data == null)
+                    {
+                        ViewBag.Message = "Customer does not exist ";
+                        return View(data);
+                    }
                     Session["LoginId"] = data.Id;
                     FormsAuthentication.SetAuthCookie(result.Username, false);
                     if (result.Role.RoleName == "Admin")

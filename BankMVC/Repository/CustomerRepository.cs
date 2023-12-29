@@ -81,7 +81,7 @@ namespace BankMVC.Repository
                         .Fetch(c=>c.Documents)
                         .Fetch(c => c.Accounts)
                         .Fetch(x=>x.User)
-                        //.Where(d => d.IsActive == true)
+                        .Where(d => d.IsActive == true)
                         .ToList();
                     txn.Commit();
 
