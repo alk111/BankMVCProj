@@ -19,7 +19,7 @@ namespace BankMVC.Helpers
             if (_sessionFactory == null)
             {
                 _sessionFactory = Fluently.Configure()
-                    .Database(MsSqlConfiguration.MsSql2012.ConnectionString("Data Source=ACER1191;Initial Catalog=BankDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;"))
+                    .Database(MsSqlConfiguration.MsSql2012.ConnectionString("Data Source=Windows2022;Initial Catalog=BankDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;"))
                     .Mappings(m=>m.FluentMappings.Add<UserMap>())
                     .Mappings(m => m.FluentMappings.Add<RoleMap>())
                     .Mappings(m => m.FluentMappings.Add<TransactionMap>())

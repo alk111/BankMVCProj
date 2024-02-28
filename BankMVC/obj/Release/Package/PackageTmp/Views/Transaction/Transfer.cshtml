@@ -1,0 +1,157 @@
+﻿@model BankMVC.ViewModels.TransactionVM
+
+@{
+    ViewBag.Title = "Transfer";
+}
+@{
+    if (ViewBag.Message != null)
+    {
+        <script>
+                 alert("@ViewBag.Message")
+
+        </script>
+    }
+
+    if (ViewBag.Status == "Successfull")
+    {
+        <script>
+
+            window.onload = () => {
+                window.location.href ='@Url.Action("CustomerDashboard", "Customer")';
+            };
+        </script>
+
+
+    }
+}
+
+<style>
+    body {
+        background-color: #f5f5f5;
+        color: #333;
+    }
+
+    .container {
+        margin-top: auto;
+    }
+
+    .register-container {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .register-header {
+        text-align: center;
+        color: #3498db;
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .form-horizontal {
+        margin-top: 20px;
+    }
+
+    .control-label {
+        /*color: #333;*/
+        /*font-size: large;*/
+        color: #3498db;
+        font-weight: bold;
+        flex: 1;
+        padding-left: 20px;
+    }
+
+    .form-control {
+        /*height: 40px;
+        font-size: large;*/
+        height: 40px;
+        font-size: large;
+        flex: 2;
+        /*margin-top: 20px;*/
+
+        margin-left: 12px;
+    }
+
+    .btn-default {
+        background-color: #3498db;
+        color: #fff;
+        border-color: #3498db;
+        font-size: large;
+        margin-right: 30px
+    }
+
+        .btn-default:hover {
+            background-color: #2a80b9;
+            border-color: #2a80b9;
+        }
+
+    .btn-danger {
+        background-color: #d9534f;
+        border-color: #d9534f;
+        font-size: large;
+    }
+
+        .btn-danger:hover {
+            background-color: #c9302c;
+            border-color: #c9302c;
+        }
+</style>
+
+<div class="container">
+    <div class="row ">
+        <div class="col-md-6 col-md-offset-3 mx-auto register-container">
+            <div class="register-header">Transfer</div>
+            <hr />
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ToAccountNumber, "To Account Number", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8" style="margin-top:10px">
+                            @Html.EditorFor(model => model.ToAccountNumber, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ToAccountNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FromAccountNumber, "From Account Number", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model.FromAccountNumber, Model.FromAccNo, "Select Account Type", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.FromAccountNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2  col-md-10" align="center">
+                            <input type="submit" value="Submit" class="btn btn-default" />
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

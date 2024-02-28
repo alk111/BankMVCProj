@@ -1,0 +1,418 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Project\\BankMVCProj\\BankMVC\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\BankMVC.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:BankMVC.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Views\\Account\\Create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Views\\Account\\Create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Services\\TransactionService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Services\\TransactionService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Services\\ITransactionService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Services\\ITransactionService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Views\\Transaction\\Deposit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Views\\Transaction\\Deposit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Views\\Transaction\\Withdraw.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Views\\Transaction\\Withdraw.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Views\\Transaction\\Transfer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Views\\Transaction\\Transfer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\ViewModels\\TransactionVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:ViewModels\\TransactionVM.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Controllers\\TransactionController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Controllers\\TransactionController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Controllers\\AccountController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Controllers\\AccountController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Controllers\\LoginController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Controllers\\LoginController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Views\\Shared\\_Layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Views\\Shared\\_Layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Views\\Transaction\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Views\\Transaction\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Repository\\TransactionRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Repository\\TransactionRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Views\\Transaction\\Create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Views\\Transaction\\Create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Views\\User\\ChangePassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Views\\User\\ChangePassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Views\\Document\\Create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Views\\Document\\Create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Views\\Login\\Login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Views\\Login\\Login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Views\\Customer\\Edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Views\\Customer\\Edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Views\\Customer\\Create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Views\\Customer\\Create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Repository\\ITransactionRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Repository\\ITransactionRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Views\\Document\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Views\\Document\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|C:\\Project\\BankMVCProj\\BankMVC\\Controllers\\DocumentController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FA637E4-D332-47EE-8FC5-130242C65C52}|BankMVC.csproj|solutionrelative:Controllers\\DocumentController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Account\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Create.cshtml",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Account\\Create.cshtml",
+              "RelativeToolTip": "Views\\Account\\Create.cshtml",
+              "ViewState": "AQIAAHgAAAAAAAAAAAAAAH0AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-26T10:40:45.129Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BankMVC.csproj",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\BankMVC.csproj",
+              "RelativeDocumentMoniker": "BankMVC.csproj",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\BankMVC.csproj",
+              "RelativeToolTip": "BankMVC.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-02-26T10:51:39.833Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TransactionService.cs",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Services\\TransactionService.cs",
+              "RelativeDocumentMoniker": "Services\\TransactionService.cs",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Services\\TransactionService.cs",
+              "RelativeToolTip": "Services\\TransactionService.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAmwDEAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T10:40:45.129Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ITransactionService.cs",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Services\\ITransactionService.cs",
+              "RelativeDocumentMoniker": "Services\\ITransactionService.cs",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Services\\ITransactionService.cs",
+              "RelativeToolTip": "Services\\ITransactionService.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAD4vxAAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T10:40:45.129Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Deposit.cshtml",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Transaction\\Deposit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Transaction\\Deposit.cshtml",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Transaction\\Deposit.cshtml",
+              "RelativeToolTip": "Views\\Transaction\\Deposit.cshtml",
+              "ViewState": "AQIAAH4AAAAAAAAAAAAAAIwAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-26T10:40:45.145Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Withdraw.cshtml",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Transaction\\Withdraw.cshtml",
+              "RelativeDocumentMoniker": "Views\\Transaction\\Withdraw.cshtml",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Transaction\\Withdraw.cshtml",
+              "RelativeToolTip": "Views\\Transaction\\Withdraw.cshtml",
+              "ViewState": "AQIAAIQAAAAAAAAAAAAYwIwAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-26T10:40:45.145Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Transfer.cshtml",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Transaction\\Transfer.cshtml",
+              "RelativeDocumentMoniker": "Views\\Transaction\\Transfer.cshtml",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Transaction\\Transfer.cshtml",
+              "RelativeToolTip": "Views\\Transaction\\Transfer.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-26T10:40:45.145Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TransactionVM.cs",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\ViewModels\\TransactionVM.cs",
+              "RelativeDocumentMoniker": "ViewModels\\TransactionVM.cs",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\ViewModels\\TransactionVM.cs",
+              "RelativeToolTip": "ViewModels\\TransactionVM.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAYwB0AAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T10:40:45.129Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TransactionController.cs",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Controllers\\TransactionController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TransactionController.cs",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Controllers\\TransactionController.cs",
+              "RelativeToolTip": "Controllers\\TransactionController.cs",
+              "ViewState": "AQIAAGABAAAAAAAAAAAqwGEBAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T10:40:44.957Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AQIAAFYAAAAAAAAAAAAIwCwAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T10:40:45.145Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "Controllers\\LoginController.cs",
+              "ViewState": "AQIAAD4AAAAAAAAAAAAIwEUAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T10:40:45.145Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAMYAAAAAAAAAAAAAAM4AAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-26T10:40:45.145Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Transaction\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Transaction\\Index.cshtml",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Transaction\\Index.cshtml",
+              "RelativeToolTip": "Views\\Transaction\\Index.cshtml",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAAAB0AAABMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-26T10:40:45.16Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TransactionRepository.cs",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Repository\\TransactionRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\TransactionRepository.cs",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Repository\\TransactionRepository.cs",
+              "RelativeToolTip": "Repository\\TransactionRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEkAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T10:40:45.16Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Web.config",
+              "RelativeDocumentMoniker": "Web.config",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Web.config",
+              "RelativeToolTip": "Web.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-02-26T10:40:45.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Transaction\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Transaction\\Create.cshtml",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Transaction\\Create.cshtml",
+              "RelativeToolTip": "Views\\Transaction\\Create.cshtml",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAAADoAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-26T10:40:45.16Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ChangePassword.cshtml",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\User\\ChangePassword.cshtml",
+              "RelativeDocumentMoniker": "Views\\User\\ChangePassword.cshtml",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\User\\ChangePassword.cshtml",
+              "RelativeToolTip": "Views\\User\\ChangePassword.cshtml",
+              "ViewState": "AQIAADYAAAAAAAAAAAAowEkAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-26T10:40:45.16Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Document\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Document\\Create.cshtml",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Document\\Create.cshtml",
+              "RelativeToolTip": "Views\\Document\\Create.cshtml",
+              "ViewState": "AQIAAGkAAAAAAAAAAAAAAD8AAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-26T10:40:45.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Login\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Login\\Login.cshtml",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Login\\Login.cshtml",
+              "RelativeToolTip": "Views\\Login\\Login.cshtml",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAAAGsAAAB+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-26T10:40:45.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Customer\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Customer\\Edit.cshtml",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Customer\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Customer\\Edit.cshtml",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAAAEcAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-26T10:40:45.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Customer\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Customer\\Create.cshtml",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Customer\\Create.cshtml",
+              "RelativeToolTip": "Views\\Customer\\Create.cshtml",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAAwFcAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-26T10:40:45.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ITransactionRepository.cs",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Repository\\ITransactionRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\ITransactionRepository.cs",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Repository\\ITransactionRepository.cs",
+              "RelativeToolTip": "Repository\\ITransactionRepository.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAIAwwA8AAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T10:40:45.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Document\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Document\\Index.cshtml",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Views\\Document\\Index.cshtml",
+              "RelativeToolTip": "Views\\Document\\Index.cshtml",
+              "ViewState": "AQIAADkAAAAAAAAAAAAAAEEAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-26T10:40:45.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "DocumentController.cs",
+              "DocumentMoniker": "C:\\Project\\BankMVCProj\\BankMVC\\Controllers\\DocumentController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DocumentController.cs",
+              "ToolTip": "C:\\Project\\BankMVCProj\\BankMVC\\Controllers\\DocumentController.cs",
+              "RelativeToolTip": "Controllers\\DocumentController.cs",
+              "ViewState": "AQIAACYAAAAAAAAAAADwvycAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T10:40:45.192Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
